@@ -10,6 +10,7 @@ import React from 'react'
 const Home: NextPage = () => {
   const [btnDisable, setBtnDisable] = React.useState(true);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [wrongPassword, setWrongPassword] = React.useState(false);
   const handleSubmit = () => {
     console.log("submitted");
   }
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
         <input className={styles.inputs} type="textarea"></input>
         <div className={styles.line1}></div>
         <p className={styles.password}>Password</p>
-        <input className={styles.password_input} type={showPassword ? "text" : "password"}></input>
+        <input style={{ color: wrongPassword ? "red" : "black" }} className={styles.password_input} type={showPassword ? "text" : "password"}></input>
 
         <div className={styles.line2}></div>
 
@@ -35,7 +36,7 @@ const Home: NextPage = () => {
 
 
         <p className={styles.text}>Minimum 8 characters with at least 1 number</p>
-        <button className={styles.button} type="submit" disabled={btnDisable} >Log In</button>
+        <button className={styles.button} type="submit" style={{ backgroundColor: btnDisable ? "#D2D3D9" : "#1996FC" }} disabled={btnDisable} >Log In</button>
         <p className={styles.text2}>By signing in you agree to Health <span className={styles.blue}>Terms of service</span> and
           <span className={styles.blue}> Privacy policy.</span></p>
         <Link href="/forgotPassword">
