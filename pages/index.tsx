@@ -16,6 +16,7 @@ const Home: NextPage = () => {
   }
   return (
     <div>
+<<<<<<< HEAD
       <div className={styles.container}>
         <Image width={550} height={657} src={login_icon} className={styles.images} />
         <Image src={logo} className={styles.logo} />
@@ -44,6 +45,9 @@ const Home: NextPage = () => {
         </Link>
       </form>
 
+=======
+      <h1>Hello</h1>
+>>>>>>> 4857b33 (initial commit)
     </div>
   )
 }
