@@ -16,10 +16,18 @@ const Home: NextPage = () => {
   }
   return (
     <div>
-<<<<<<< HEAD
       <div className={styles.container}>
-        <Image width={550} height={657} src={login_icon} className={styles.images} />
-        <Image src={logo} className={styles.logo} />
+        <Image width={540} height={657} src={logo} className={styles.images} />
+      </div>
+      <div>
+        {wrongPassword &&
+          <div className={styles.error_container}>
+            <span className={styles.error_round}>x</span>
+            <span className={styles.error_text}>This password is not correct. Try again
+              or request a new password if you forgot.</span>
+            <span onClick={() => setWrongPassword(!wrongPassword)} className={styles.error_cancel}>x</span>
+          </div>
+        }
       </div>
       <form onSubmit={handleSubmit} className={styles.login_container}>
         <span className={styles.login_header}>Log In</span>
@@ -45,9 +53,6 @@ const Home: NextPage = () => {
         </Link>
       </form>
 
-=======
-      <h1>Hello</h1>
->>>>>>> 4857b33 (initial commit)
     </div>
   )
 }

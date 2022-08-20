@@ -9,7 +9,7 @@
 
 }
 
-.container {
+/* .container {
   position: relative;
   top: 0;
   left: 0;
@@ -21,7 +21,60 @@
   left: 40px;
   bottom: 400px;
 
+} */
+
+.error_container {
+  position: absolute;
+  width: 440px;
+  height: 70px;
+  left: 700px;
+  top: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  border-left: 4px solid #EB5757;
+  color: #EB5757;
 }
+
+.error_round {
+  position: absolute;
+  background: #EB5757;
+  color: white;
+  padding: 8px;
+  padding-bottom: 15px;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  top: 10px;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.error_text {
+  position: absolute;
+  width: 315px;
+  height: 44px;
+  top: 15px;
+  left: 60px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.error_cancel {
+  position: absolute;
+  color: #212121;
+  left: 380px;
+  top: 2px;
+  background-color: transparent;
+  font-size: 2vw;
+  cursor: pointer;
+}
+
 
 .login_container {
   position: absolute;
