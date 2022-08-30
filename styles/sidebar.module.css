@@ -1,0 +1,219 @@
+.dashboard_container {
+    position: absolute;
+    width: 60px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    background: #1996FC;
+}
+
+.dashboard_container:hover {
+    width: 212px;
+    transition: 0.7s;
+    position: fixed;
+    z-index: 1;
+}
+
+.logotext {
+    position: absolute;
+    width: 84.27px;
+    height: 15.16px;
+    left: 47.73px;
+    top: 27.16px;
+    left: 47px;
+    top: -7px;
+    color: white;
+}
+
+.left_buttons {
+    vertical-align: middle;
+    position: absolute;
+    color: white;
+    width: 95px;
+    height: 24px;
+    left: 48px;
+    top: -5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    border: none;
+    background-color: transparent;
+}
+
+.left_buttons:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #1996FC;
+    border-radius: 8px;
+}
+
+.health_logo {
+    position: absolute;
+    width: 34px;
+    height: 33.23px;
+    left: 13px;
+    top: 20px;
+}
+
+.admin_users {
+    position: absolute;
+    width: 44px;
+    height: 40px;
+    left: 22px;
+    top: 104px;
+}
+
+.bellIcon {
+    position: absolute;
+    top: 5px;
+    right: 60px;
+}
+
+.line {
+    position: absolute;
+    width: 44px;
+    height: 1px;
+    left: 8px;
+    top: 71px;
+    background: #FFFFFF;
+    opacity: 0.1;
+}
+
+.clipboard {
+    position: absolute;
+    width: 44px;
+    height: 40px;
+    left: 18px;
+    top: 146px;
+    border-radius: 6px;
+}
+
+.clients_unselected {
+    position: absolute;
+    width: 44px;
+    height: 40px;
+    left: 19px;
+    top: 196px;
+}
+
+.settings {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 18px;
+    top: 240px;
+}
+
+.arrow {
+    position: absolute;
+    top: opx;
+    left: 160px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttons {
+    position: relative;
+    color: white;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 6px 0 6px 0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    width: 196px;
+    height: 40px;
+    border: none;
+    text-align: left;
+    padding-left: 60px;
+}
+
+.button_container {
+    top: 281px;
+    left: 8px;
+    position: absolute;
+    width: 92px;
+    height: 148px;
+}
+
+.topContainer {
+    position: absolute;
+    width: 1380px;
+    height: 64px;
+    left: 60px;
+    top: 0px;
+}
+
+.profilepic {
+    position: absolute;
+    right: 16.5px;
+    top: 15.5px;
+    padding: 0px;
+    width: 32px;
+    height: 32px;
+    /* background: url(profile-picture-4); */
+    border-radius: 16px;
+
+}
+
+.line1 {
+    position: absolute;
+    width: 1380px;
+    height: 1px;
+    background: #E5E7EB;
+    top: 63px;
+    left: 60px;
+}
+
+.second_container {
+    position: absolute;
+    width: 1379px;
+    height: 91px;
+    left: 61px;
+    top: 65px;
+    border-bottom: 1px #E5E7EB solid;
+
+}
+
+.topText {
+    position: absolute;
+    width: 204px;
+    height: 27px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: #111928;
+    bottom: 18.5px;
+    left: 20px;
+}
+
+.search {
+    position: absolute;
+    top: 20px;
+    left: 234px;
+    box-sizing: border-box;
+    padding: 13px 20px;
+    width: 562.58px;
+    height: 50px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+.add_button {
+    color: #fff;
+    position: absolute;
+    top: 25.5px;
+    right: 20px;
+    width: 130px;
+    height: 39px;
+    background: #262626;
+    border-radius: 12px;
+
+}
