@@ -1,11 +1,11 @@
 import styles from "../styles/sidebar.module.css";
 import health_logo from "../public/health_logo.png"
 import admin_users from "../public/admin_users.png";
-import clients_unselected from "../public/clients_unselected.png";
+import clients_unselected from "../public/Clients_unselected.png";
 import clipboard from "../public/clipboard-list.png"
 import settings from "../public/settings.png";
 import Image from 'next/image'
-import avatar from "../public/avatar.png";
+import avatar from "../public/Avatar.png";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { ArrowDownward } from "@mui/icons-material";

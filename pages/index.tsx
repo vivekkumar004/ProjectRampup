@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className={styles.container}>
-        <Image width={540} height={657} src={logo} className={styles.images} />
+        <Image alt="logo" width={540} height={657} src={logo} className={styles.images} />
       </div>
       <div>
         {wrongPassword &&
