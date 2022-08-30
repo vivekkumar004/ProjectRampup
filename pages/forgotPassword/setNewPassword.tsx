@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../../styles/forgotPassword.module.css"
 import styles2 from "../../styles/setNewPassword.module.css";
 
-const setNewPassword = () => {
+const SetNewPassword = () => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     return (
@@ -45,4 +45,4 @@ const setNewPassword = () => {
     )
 }
 
-export default setNewPassword;
+export default SetNewPassword;

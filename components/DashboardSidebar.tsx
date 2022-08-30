@@ -23,24 +23,24 @@ const DashboardSidebar = ({ title, button_title, modalOpen }: any) => {
 
         <div className={styles.dashboard_container}>
             <div className={styles.health_logo} >
-                <Image src={health_logo} />
+                <Image alt="logo" src={health_logo} />
                 <p className={styles.logotext}>HEALTH</p>
             </div>
             <div className={styles.admin_users}>
-                <Image src={admin_users} />
+                <Image alt="admin_users" src={admin_users} />
                 <button className={styles.left_buttons}>Admin_Users</button>
             </div>
 
             <div className={styles.clipboard}>
-                <Image src={clipboard} />
+                <Image alt="clipboard" src={clipboard} />
                 <button className={styles.left_buttons}>Projects</button>
             </div>
             <div className={styles.clients_unselected}>
-                <Image src={clients_unselected} />
+                <Image alt="clients_unselected" src={clients_unselected} />
                 <button className={styles.left_buttons}>Employees</button>
             </div>
             <div className={styles.settings}>
-                <Image src={settings} />
+                <Image alt="settings" src={settings} />
                 <button className={styles.left_buttons}>Settings</button>
                 {arrow === "down" ?
                     <KeyboardArrowDownIcon onClick={() => setArrow("up")} className={styles.arrow} /> :
@@ -59,7 +59,7 @@ const DashboardSidebar = ({ title, button_title, modalOpen }: any) => {
                 <div className={styles.bellIcon}>
                     <NotificationsIcon />
                 </div>
-                <Image src={avatar} />
+                <Image alt="avatar" src={avatar} />
             </div>
         </div>
         <div className={styles.line1}></div>

@@ -3,7 +3,7 @@ import DashboardSidebar from "../../components/DashboardSidebar"
 import AdminUsersModal from "../../components/AdminUsersModal"
 
 
-const adminUsers = () => {
+const AdminUsers = () => {
     const [modalOpen, setModalOpen] = React.useState(false);
 
     return <div style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
@@ -12,4 +12,4 @@ const adminUsers = () => {
     </div>
 
 }
-export default adminUsers;
+export default AdminUsers;
