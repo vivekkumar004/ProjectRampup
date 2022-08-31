@@ -1,4 +1,4 @@
-import styles from "../styles/sidebar.module.css";
+import styles from "../styles/components/sidebar.module.css";
 import health_logo from "../public/health_logo.png"
 import admin_users from "../public/admin_users.png";
 import clients_unselected from "../public/Clients_unselected.png";

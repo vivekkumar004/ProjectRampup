@@ -6,7 +6,6 @@
     top: 120px;
     background: #FFFFFF;
     border-radius: 16px;
-    background: gray;
 }
 
 .userText {
@@ -14,7 +13,7 @@
     width: 112px;
     height: 33px;
     left: 40px;
-    top: 30px;
+    top: 20px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -29,5 +28,163 @@
     height: 1px;
     left: 40px;
     top: 85px;
-    color: #ECECEF;
+    background: #ECECEF;
+}
+
+.close {
+    color: #454754;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.name {
+    color: #212121;
+    position: absolute;
+    width: 42px;
+    height: 14px;
+    left: 40px;
+    top: 100px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+}
+
+.inputName {
+    box-sizing: border-box;
+    position: absolute;
+    width: 620px;
+    height: 48px;
+    left: 40px;
+    top: 132px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.email {
+    color: #212121;
+    position: absolute;
+    width: 44px;
+    height: 14px;
+    left: 40px;
+    top: 190px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+}
+
+.inputEmail {
+    box-sizing: border-box;
+    position: absolute;
+    width: 620px;
+    height: 48px;
+    left: 40px;
+    top: 223px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.phone {
+    color: #212121;
+    position: absolute;
+    height: 14px;
+    left: 40px;
+    top: 285px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+}
+
+.select_country {
+    box-sizing: border-box;
+    position: absolute;
+    width: 68px;
+    height: 48px;
+    left: 40px;
+    top: 319px;
+    background: #EBF5FF;
+    border: 1px solid #DCDCE0;
+}
+
+.number {
+    box-sizing: border-box;
+    position: absolute;
+    width: 292px;
+    height: 48px;
+    left: 108px;
+    top: 319px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.label_role {
+    color: #212121;
+    position: absolute;
+    width: 37px;
+    height: 14px;
+    left: 430px;
+    top: 300px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+}
+
+.select_role {
+    box-sizing: border-box;
+    position: absolute;
+    width: 230px;
+    height: 48px;
+    right: 40px;
+    top: 319px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.button_add {
+    border: 1px solid #262626;
+    border-radius: 6px;
+    align-items: center;
+    padding: 10px 13px;
+    gap: 8px;
+    position: absolute;
+    height: 41px;
+    left: 40px;
+    bottom: 142px;
+
+}
+
+.button_cancel {
+    padding: 9px 17px;
+    position: absolute;
+    width: 88px;
+    height: 42px;
+    left: 445px;
+    bottom: 40px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+}
+
+.button_invite {
+    padding: 9px 17px;
+    position: absolute;
+    width: 115px;
+    height: 42px;
+    right: 40px;
+    bottom: 40px;
+    background: #F6F6F6;
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
 }

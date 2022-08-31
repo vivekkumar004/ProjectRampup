@@ -1,0 +1,15 @@
+/* .splash {
+    position: relative;
+    top: 380px;
+    left: 627px;
+} */
+
+.container {
+    position: absolute;
+    display: flex;
+    top: 380px;
+    left: 627px;
+    /* align-items: center; */
+    justify-content: center;
+    align-content: center;
+}

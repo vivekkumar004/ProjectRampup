@@ -1,0 +1,161 @@
+.data_container {
+    left: 81px;
+    top: 176px;
+    position: relative;
+    border: 2px solid;
+    height: 762px;
+    width: 1340px;
+}
+
+.table_head {
+    position: absolute;
+    width: 1339px;
+    height: 46px;
+    background: #F3F4F6;
+    text-align: center;
+}
+
+.checkbox_top {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+
+}
+
+.user_id {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    left: 66px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.name {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    left: 258px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.email {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    left: 417px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.phone {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    right: 592px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.role {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    right: 377px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.status {
+    color: #4B5563;
+    position: absolute;
+    height: 21px;
+    right: 225px;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.options {
+    position: absolute;
+    top: 5px;
+    right: 42px;
+    width: 54px;
+    height: 21px;
+    color: #4B5563;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.arrow {
+    position: relative;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+}
+
+.rowContainer {
+    position: static;
+    height: 65px;
+    width: 1336px;
+    border: 2px solid;
+}
+
+.tablebody {
+    top: 46px;
+    position: absolute;
+}
+
+.itemcheckbox {
+    height: 18px;
+    width: 18px;
+    top: 24px;
+    left: 5px;
+}
+
+.itemuserid {
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+    top: 21px;
+    left: 66px;
+}
+
+.itemoptions {
+    top: 24px;
+    right: 0px;
+}

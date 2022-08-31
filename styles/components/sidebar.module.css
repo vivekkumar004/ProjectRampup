@@ -5,12 +5,12 @@
     left: 0px;
     top: 0px;
     background: #1996FC;
+
 }
 
 .dashboard_container:hover {
     width: 212px;
     transition: 0.7s;
-    position: fixed;
     z-index: 1;
 }
 
