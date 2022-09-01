@@ -8,10 +8,8 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const AdminUsers = () => {
-    const [modalOpen, setModalOpen] = React.useState(false);
     const Data: Array<any> = [];
-
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 150; i++) {
         Data.push([
             "123",
             "vivek",
@@ -21,11 +19,32 @@ const AdminUsers = () => {
             "invite"
         ]);
     }
+    const [modalOpen, setModalOpen] = React.useState(false);
+    const [page, setPage] = React.useState({ startno: 0, endno: 15 });
+    const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
+
+    function handleleft() {
+        if (page.startno === 1) {
+            return;
+        }
+        else {
+            setPage(prev => ({ startno: prev.startno - 15, endno: prev.endno - 15 }))
+        }
+    }
+
+    function handleright() {
+        if (page["endno"] === Data.length) {
+            return;
+        }
+
+        setPage(prev => ({ startno: prev.startno + 15, endno: prev.endno + 15 }))
+    }
+
 
     return <div className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen} button_title="  Add User" />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
-        <Pagination startpage="1" endpage="15" totalpage="200" />
+        <Pagination rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
 
         <div className={styles.data_container} >
             <table>
@@ -44,7 +63,7 @@ const AdminUsers = () => {
                 </thead>
                 <tbody className={styles.tablebody}>
 
-                    {Data.map((item, index) => {
+                    {currentData.map((item, index) => {
                         return (
                             <tr className={styles.rowContainer} key={index}>
                                 <td className={styles.itemcheckboxcontainer}> <input className={styles.itemcheckbox} type="checkbox" /></td>
