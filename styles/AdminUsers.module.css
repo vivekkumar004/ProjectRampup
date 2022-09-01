@@ -1,10 +1,17 @@
+.container {
+    width: 1440px;
+    height: 1059px;
+}
+
 .data_container {
     left: 81px;
     top: 176px;
     position: relative;
-    border: 2px solid;
+    display: block;
     height: 762px;
     width: 1340px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .table_head {
@@ -124,26 +131,36 @@
     height: 18px;
 }
 
-.rowContainer {
-    position: static;
-    height: 65px;
-    width: 1336px;
-    border: 2px solid;
-}
-
 .tablebody {
+    left: 0;
     top: 46px;
     position: absolute;
+    height: 716px;
+    width: 1339px;
+}
+
+.rowContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    width: 1336px;
+    border-bottom: 1px solid #E5E7EB;
+    color: #262626;
 }
 
 .itemcheckbox {
+    position: absolute;
     height: 18px;
     width: 18px;
-    top: 24px;
-    left: 5px;
+    top: 22px;
+    left: 15px;
 }
 
+
+
 .itemuserid {
+    position: absolute;
     height: 24px;
     font-family: 'Inter';
     font-style: normal;
@@ -155,7 +172,71 @@
     left: 66px;
 }
 
+.itemname {
+    position: absolute;
+    height: 24px;
+    left: 263px;
+    top: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.itememail {
+    position: absolute;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+    top: 21px;
+    left: 423px;
+}
+
+.itemphone {
+    top: 21px;
+    left: 665px;
+    position: absolute;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+
+}
+
+.itemrole {
+    position: absolute;
+    width: 49px;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    top: 21px;
+    right: 397px;
+    border: 1px solid #262626;
+    border-radius: 8px;
+    padding: 5px 6px;
+
+}
+
+.itemstatues {
+    position: absolute;
+    top: 21px;
+    right: 260px;
+}
+
 .itemoptions {
+    position: absolute;
     top: 24px;
-    right: 0px;
+    right: 50px;
 }

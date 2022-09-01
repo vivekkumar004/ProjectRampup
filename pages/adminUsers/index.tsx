@@ -11,7 +11,7 @@ const AdminUsers = () => {
     const [modalOpen, setModalOpen] = React.useState(false);
     const Data: Array<any> = [];
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 15; i++) {
         Data.push([
             "123",
             "vivek",
@@ -22,7 +22,7 @@ const AdminUsers = () => {
         ]);
     }
 
-    return <div style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
+    return <div className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen} button_title="  Add User" />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
         <Pagination startpage="1" endpage="15" totalpage="200" />
