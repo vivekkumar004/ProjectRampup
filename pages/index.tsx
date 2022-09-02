@@ -11,20 +11,56 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useRouter } from 'next/router'
+
 
 const Home: NextPage = () => {
+  const router = useRouter()
+
   const [btnDisable, setBtnDisable] = React.useState(true);
   const [showPassword, setShowPassword] = React.useState(false);
   const [wrongPassword, setWrongPassword] = React.useState(false);
   const [showSplash, setShowSplash] = React.useState(true);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [emailValid, setemalValid] = React.useState(false)
 
-  const handleSubmit = () => {
-    console.log("submitted");
-  }
+  const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const passFormat =
+    /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])(.{8,24})$/;
 
   React.useEffect(() => {
     setTimeout(() => setShowSplash(false), 2000);
   }, []);
+
+  const emailexample = "vivek@cc.com";
+  const passwordexample = "vivek";
+
+  React.useEffect(() => {
+    setWrongPassword(false);
+    if (email.length > 1) {
+      if (mailFormat.test(email) && password.length > 1) {
+        setBtnDisable(false)
+      }
+      else if (mailFormat.test(email)) {
+        setemalValid(false)
+      }
+      else {
+        setemalValid(true)
+      }
+    }
+  }, [email, password])
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (email === emailexample && password === passwordexample) {
+      router.push('/adminUsers')
+    }
+    else {
+      setWrongPassword(true)
+    }
+  }
+
 
   return (
     <div className={styles.container}>
@@ -46,10 +82,12 @@ const Home: NextPage = () => {
           <form onSubmit={handleSubmit} className={styles.login_container}>
             <span className={styles.login_header}>Log In</span>
             <p className={styles.email_head}>Email</p>
-            <input className={styles.inputs} type="textarea"></input>
+            <input onChange={(e) => setEmail(e.target.value)} className={styles.inputs} type="text"></input>
             <div className={styles.line1}></div>
+            <div style={{ display: emailValid ? "block" : "none" }} className={styles.email_valid}>Not a valid E-mail</div>
             <p className={styles.password}>Password</p>
-            <input style={{ color: wrongPassword ? "red" : "black" }} className={styles.password_input} type={showPassword ? "text" : "password"}></input>
+            <input style={{ color: wrongPassword ? "red" : "black" }} onChange={(e) => setPassword(e.target.value)}
+              className={styles.password_input} type={showPassword ? "text" : "password"}></input>
 
             <div className={styles.line2}></div>
 

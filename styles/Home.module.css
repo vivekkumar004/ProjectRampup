@@ -116,6 +116,13 @@
   opacity: 0.3;
 }
 
+.email_valid {
+  position: absolute;
+  color: red;
+  left: 5px;
+  top: 180px;
+}
+
 .password {
   position: absolute;
   width: 57px;
