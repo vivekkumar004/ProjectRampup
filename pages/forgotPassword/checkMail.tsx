@@ -13,7 +13,7 @@ const checkMail = () => {
 
             <p className={styles.checkmail_text}>Check your email</p>
             <p className={styles.checkMail_text2}>We sent a password reset link to<b> bingwen@hotmail.com</b></p>
-            <p className={styles.checkMail_text3}>Didn't receive the email?
+            <p className={styles.checkMail_text3}>Didn&apos;t receive the email?
                 <Link href="/forgotPassword/SetNewPassword">
                     <a style={{ color: "#1996FC", textDecorationColor: "none" }}> Click to resend</a>
                 </Link></p>

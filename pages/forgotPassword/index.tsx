@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 
-const forgotPassword: NextPage = () => {
+const ForgotPassword: NextPage = () => {
     const router = useRouter()
     return (
         <div className={styles.bodycontainer}>
@@ -15,7 +15,7 @@ const forgotPassword: NextPage = () => {
 
             <div className={styles.container}>
                 <p className={styles.text}>Forgot your Password</p>
-                <p className={styles.text2}>Enter your email address, and we'll send you an email with all the instructions.</p>
+                <p className={styles.text2}>Enter your email address, and we&apos;ll send you an email with all the instructions.</p>
                 <p className={styles.email}>Email</p>
                 <input className={styles.input} type="text"></input>
                 <div className={styles.line}></div>
@@ -32,4 +32,4 @@ const forgotPassword: NextPage = () => {
 
 }
 
-export default forgotPassword;
+export default ForgotPassword;
