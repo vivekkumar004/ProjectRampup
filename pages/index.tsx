@@ -49,7 +49,7 @@ const Home: NextPage = () => {
         setemalValid(true)
       }
     }
-  }, [email, password])
+  }, [email, password, mailFormat])
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
