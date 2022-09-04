@@ -22,6 +22,7 @@ const AdminUsers = () => {
     const [modalOpen, setModalOpen] = React.useState(false);
     const [page, setPage] = React.useState({ startno: 0, endno: 15 });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
+    const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
 
     function handleleft() {
         if (page.startno === 1) {
@@ -41,12 +42,14 @@ const AdminUsers = () => {
     }
 
 
-    return <div className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
-        <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen} button_title="  Add User" />
+    return <div
+        className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
+        <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen}
+            button_title="  Add User" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
-        <Pagination rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
+        <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
 
-        <div className={styles.data_container} >
+        <div style={{ width: controlDashboard ? "1188px" : "1340px", left: controlDashboard ? "233px" : "81px" }} className={styles.table_container} >
             <table>
                 <thead className={styles.table_head}>
                     <tr>
@@ -72,7 +75,7 @@ const AdminUsers = () => {
                                 <td className={styles.itememail}>{item[2]}</td>
                                 <td className={styles.itemphone}>{item[3]}</td>
                                 <td className={styles.itemrole}>{item[4]}</td>
-                                <td className={styles.itemstatues}>{item[5]}</td>
+                                <td className={styles.itemstatus}>{item[5]}</td>
                                 <td className={styles.itemoptions}><MoreVertIcon /></td>
 
                             </tr>

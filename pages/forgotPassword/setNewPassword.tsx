@@ -1,45 +1,49 @@
 import Link from "next/link";
 import React from "react";
-import styles from "../../styles/forgotPassword.module.css"
-import styles2 from "../../styles/setNewPassword.module.css";
+import styles from "../../styles/setNewPassword.module.css";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useRouter } from 'next/router'
+
 
 const SetNewPassword = () => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const router = useRouter()
 
     return (
         <div>
             <Link href="/forgotPassword">
-                <a className={styles.back_link}>&lt; Back</a>
+                <a className={styles.back_link}><ArrowBackIosIcon className={styles.back_arrow} /> Back</a>
             </Link>
-            <p className={styles2.text}>Set new password</p>
-            <p className={styles2.text2}> Your new password must be different from previous used passwords.</p>
-            <p className={styles2.text3}>Password</p>
 
-            <input className={styles2.input1} type={showPassword ? "text" : "password"} />
-            <div className={styles2.line1}></div>
-            <p className={styles2.text4}>Minimum 8 characters with at least 1 number.</p>
+            <p className={styles.text}>Set new password</p>
+            <p className={styles.text2}> Your new password must be different from previous used passwords.</p>
+            <p className={styles.password}>Password</p>
 
-            <button type="button" className={styles2.eye} onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <i className="gg-eye"></i> : <i className="fa fa-eye-slash fa-2x"></i>}
+            <input className={styles.input1} type={showPassword ? "text" : "password"} />
+            <div className={styles.line1}></div>
+            <p className={styles.text4}>Minimum 8 characters with at least 1 number.</p>
+
+            <button type="button" className={styles.eye1} onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
 
-            <button type="button" className={styles2.eye2} onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <i className="gg-eye"></i> : <i className="fa fa-eye-slash fa-2x"></i>}
+            <button type="button" className={styles.eye2} onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
 
 
-            <p className={styles2.text5}>Password</p>
-            <input className={styles2.input2} type={showPassword ? "text" : "password"} />
-            <div className={styles2.line2}></div>
+            <p className={styles.text5}>Password</p>
+            <input className={styles.input2} type={showPassword ? "text" : "password"} />
+            <div className={styles.line2}></div>
 
-            <p className={styles2.text6}>Both password must match.</p>
-            <button className={styles2.btn_reset}>
-                <Link href="/forgotPassword/resetSuccessful">
-                    <a >Reset password</a>
-                </Link></button>
+            <p className={styles.text6}>Both password must match.</p>
+
+            <button type="button" onClick={() => router.push("/forgotPassword/resetSuccessful")} className={styles.btn_reset}>Reset password</button>
 
             <Link href="#">
-                <a className={styles2.link_cancel}>Cancel</a>
+                <a className={styles.link_cancel}>Cancel</a>
             </Link>
         </div>
     )

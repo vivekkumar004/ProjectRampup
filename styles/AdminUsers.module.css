@@ -3,13 +3,11 @@
     height: 1059px;
 }
 
-.data_container {
-    left: 81px;
+.table_container {
     top: 176px;
-    position: relative;
+    position: absolute;
     display: block;
-    height: 762px;
-    width: 1340px;
+    height: 838px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -18,6 +16,7 @@
     position: absolute;
     width: 1339px;
     height: 46px;
+    top: 0px;
     background: #F3F4F6;
     text-align: center;
 }
@@ -37,7 +36,7 @@
     position: absolute;
     height: 21px;
     left: 66px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -50,7 +49,7 @@
     position: absolute;
     height: 21px;
     left: 258px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -63,7 +62,7 @@
     position: absolute;
     height: 21px;
     left: 417px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -76,7 +75,7 @@
     position: absolute;
     height: 21px;
     right: 592px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -89,7 +88,7 @@
     position: absolute;
     height: 21px;
     right: 377px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -102,7 +101,7 @@
     position: absolute;
     height: 21px;
     right: 225px;
-    top: 5px;
+    top: 8px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -112,7 +111,7 @@
 
 .options {
     position: absolute;
-    top: 5px;
+    top: 8px;
     right: 42px;
     width: 54px;
     height: 21px;
@@ -126,7 +125,7 @@
 
 .arrow {
     position: relative;
-    top: 5px;
+    top: 3px;
     width: 18px;
     height: 18px;
 }
@@ -135,7 +134,7 @@
     left: 0;
     top: 46px;
     position: absolute;
-    height: 716px;
+    height: 792px;
     width: 1339px;
 }
 
@@ -195,7 +194,7 @@
     line-height: 150%;
     color: #111928;
     top: 21px;
-    left: 423px;
+    left: 420px;
 }
 
 .itemphone {
@@ -222,14 +221,14 @@
     font-size: 16px;
     line-height: 150%;
     top: 21px;
-    right: 397px;
+    right: 390px;
     border: 1px solid #262626;
     border-radius: 8px;
     padding: 5px 6px;
 
 }
 
-.itemstatues {
+.itemstatus {
     position: absolute;
     top: 21px;
     right: 260px;

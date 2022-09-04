@@ -3,7 +3,7 @@ import styles from "../../styles/projects.module.css"
 import ProjectModal from "../../components/projectModal"
 import React from "react"
 
-const ProjectList = () => {
+const Projects = () => {
     const [modalOpen, setModalOpen] = React.useState(false)
 
     return <div className={styles.cont}>
@@ -12,5 +12,5 @@ const ProjectList = () => {
     </div>
 }
 
-export default ProjectList;
+export default Projects;
 
