@@ -25,6 +25,7 @@ const Home: NextPage = () => {
   const [password, setPassword] = React.useState("");
   const [emailValid, setemalValid] = React.useState(false)
 
+  const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const passFormat =
     /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])(.{8,24})$/;
 
@@ -36,7 +37,6 @@ const Home: NextPage = () => {
   const passwordexample = "vivek";
 
   React.useEffect(() => {
-    const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     setWrongPassword(false);
     if (email.length > 1) {
       if (mailFormat.test(email) && password.length > 1) {
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
         setemalValid(true)
       }
     }
-  }, [email, password, mailFormat])
+  })
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
