@@ -12,12 +12,13 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useRouter } from 'next/router'
+import axios from "axios";
 
 
 const Home: NextPage = () => {
   const router = useRouter()
 
-  const [btnDisable, setBtnDisable] = React.useState(true);
+  const [btnDisable, setBtnDisable] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const [wrongPassword, setWrongPassword] = React.useState(false);
   const [showSplash, setShowSplash] = React.useState(true);
@@ -33,32 +34,43 @@ const Home: NextPage = () => {
     setTimeout(() => setShowSplash(false), 2000);
   }, []);
 
-  const emailexample = "vivek@cc.com";
-  const passwordexample = "vivek";
+  // React.useEffect(() => {
+  //   setWrongPassword(false);
+  //   if (email.length > 1) {
+  //     if (mailFormat.test(email) && password.length > 1) {
+  //       setBtnDisable(false)
+  //     }
+  //     else if (mailFormat.test(email)) {
+  //       setemalValid(false)
+  //     }
+  //     else {
+  //       setemalValid(true)
+  //     }
+  //   }
+  // }, [email, password])
 
-  React.useEffect(() => {
-    setWrongPassword(false);
-    if (email.length > 1) {
-      if (mailFormat.test(email) && password.length > 1) {
-        setBtnDisable(false)
-      }
-      else if (mailFormat.test(email)) {
-        setemalValid(false)
-      }
-      else {
-        setemalValid(true)
-      }
+  const tempdata = {
+    "user": {
+      "email": "test@gmail.com",
+      "password": "1234567"
     }
-  }, [email, password.length])
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if (email === emailexample && password === passwordexample) {
-      router.push('/adminUsers')
-    }
-    else {
-      setWrongPassword(true)
-    }
+
+    axios.post("https://sheltered-retreat-12255.herokuapp.com/users/sign_in", tempdata)
+      .then(res => {
+        console.log(res);
+        if (res.data.message === 'You are logged in.') {
+          router.push('/adminUsers')
+        }
+        else {
+          setWrongPassword(true)
+        }
+      })
+      .catch(() => console.error("errorr"))
+
   }
 
 
