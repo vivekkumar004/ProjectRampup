@@ -1,0 +1,177 @@
+.container {
+    width: 1440px;
+    height: 1059px;
+}
+
+.table_container {
+    top: 176px;
+    position: absolute;
+    display: block;
+    height: 838px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table_head {
+    position: absolute;
+    width: 1339px;
+    height: 46px;
+    top: 0px;
+    background: #F3F4F6;
+    text-align: center;
+}
+
+
+.checkbox_top {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+
+}
+
+.name {
+    position: absolute;
+    width: 80px;
+    height: 21px;
+    left: 66px;
+    top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #4B5563;
+}
+
+.description {
+    position: absolute;
+    width: 119px;
+    height: 21px;
+    left: 371px;
+    top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #4B5563;
+}
+
+.status {
+    position: absolute;
+    width: 84px;
+    height: 21px;
+    left: 946px;
+    top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #4B5563;
+
+}
+
+.options {
+    position: absolute;
+    width: 54px;
+    height: 21px;
+    left: 1244px;
+    top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #4B5563;
+}
+
+.arrow {
+    position: relative;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+
+.tablebody {
+    left: 0;
+    top: 46px;
+    position: absolute;
+    height: 792px;
+    width: 1339px;
+}
+
+
+.rowContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    width: 1336px;
+    border-bottom: 1px solid #E5E7EB;
+    color: #262626;
+}
+
+.itemcheckbox {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    top: 22px;
+    left: 15px;
+}
+
+.itemname {
+    position: absolute;
+    height: 24px;
+    left: 66px;
+    top: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.itemdescription {
+    position: absolute;
+    height: 24px;
+    width: 361px;
+    left: 378px;
+    top: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.itemstatus {
+    position: absolute;
+    height: 24px;
+    left: 71.25%;
+    right: 25.35%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.itemoptions {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 1259px;
+    top: 20px;
+}

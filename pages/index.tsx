@@ -13,6 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useRouter } from 'next/router'
 import axios from "axios";
+import { WindowSharp } from '@mui/icons-material'
 
 
 const Home: NextPage = () => {
@@ -51,14 +52,13 @@ const Home: NextPage = () => {
 
   const tempdata = {
     "user": {
-      "email": "test@gmail.com",
-      "password": "1234567"
+      "email": email,
+      "password": password
     }
   }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
     axios.post("https://sheltered-retreat-12255.herokuapp.com/users/sign_in", tempdata)
       .then(res => {
         console.log(res);

@@ -1,0 +1,115 @@
+.container {
+    width: 1440px;
+    height: 1059px;
+}
+
+
+.table_container {
+    top: 176px;
+    position: absolute;
+    display: block;
+    height: 838px;
+    width: 1696px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.table_head {
+    position: absolute;
+    width: 1696px;
+    height: 46px;
+    top: 0px;
+    background: #F3F4F6;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #4B5563;
+}
+
+.checkbox_top {
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+
+}
+
+.arrow {
+    position: relative;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+.project_id {
+    position: absolute;
+    top: 9px;
+    left: 66px;
+}
+
+.name {
+    position: absolute;
+    top: 9px;
+    left: 221px;
+}
+
+.client {
+    position: absolute;
+    top: 9px;
+    left: 361px;
+}
+
+.project_type {
+    position: absolute;
+    top: 9px;
+    left: 518px;
+}
+
+.project_responsible {
+    position: absolute;
+    top: 9px;
+    left: 693px;
+}
+
+.start_date {
+    position: absolute;
+    top: 9px;
+    left: 917px;
+}
+
+.end_date {
+    position: absolute;
+    top: 9px;
+    left: 1075px;
+}
+
+.project_status {
+    position: absolute;
+    top: 9px;
+    left: 1226px;
+}
+
+.monthly_status {
+    position: absolute;
+    top: 9px;
+    left: 1411px;
+}
+
+.options {
+    position: absolute;
+    top: 9px;
+    left: 1603px;
+}
+
+.tablebody {
+    left: 0;
+    top: 46px;
+    position: absolute;
+    height: 792px;
+    width: 1696px;
+}

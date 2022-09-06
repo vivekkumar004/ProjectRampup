@@ -1,22 +1,24 @@
 import React from "react"
 import DashboardSidebar from "../../components/DashboardSidebar"
-import AdminUsersModal from "../../components/AdminUsersModal"
+import AdminUsersModal from "../../components/AdminUsers/AdminUsersModal"
 import styles from "../../styles/AdminUsers.module.css"
 import Pagination from "../../components/Pagination";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const AdminUsers = () => {
     const Data: Array<any> = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 5; i++) {
         Data.push([
             "123",
             "vivek",
             "vivek@email.com",
             "+1 (415)425-5588",
             "Admin",
-            "invite"
+            "active"
         ]);
     }
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -33,17 +35,20 @@ const AdminUsers = () => {
         }
     }
 
+    React.useEffect(() => {
+        setCurrentData(Data.slice(page["startno"], page["endno"]))
+    }, [page])
+
+
     function handleright() {
         if (page["endno"] === Data.length) {
             return;
         }
-
         setPage(prev => ({ startno: prev.startno + 15, endno: prev.endno + 15 }))
     }
 
 
-    return <div
-        className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
+    return <div className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen}
             button_title="  Add User" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
@@ -61,7 +66,6 @@ const AdminUsers = () => {
                         <td className={styles.role}>Role(s) <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.status}>Status <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.options}>Options</td>
-
                     </tr>
                 </thead>
                 <tbody className={styles.tablebody}>
@@ -69,13 +73,17 @@ const AdminUsers = () => {
                     {currentData.map((item, index) => {
                         return (
                             <tr className={styles.rowContainer} key={index}>
-                                <td className={styles.itemcheckboxcontainer}> <input className={styles.itemcheckbox} type="checkbox" /></td>
+                                <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
                                 <td className={styles.itemuserid}>{item[0]}</td>
                                 <td className={styles.itemname}>{item[1]}</td>
                                 <td className={styles.itememail}>{item[2]}</td>
                                 <td className={styles.itemphone}>{item[3]}</td>
                                 <td className={styles.itemrole}>{item[4]}</td>
-                                <td className={styles.itemstatus}>{item[5]}</td>
+                                <td className={styles.itemstatus}>
+                                    {item[5] ? item[5] === "Rejected" || "rejected" || "inactive" || "Inactive" ? <CancelIcon style={{ color: "#E02424" }} /> :
+                                        item[5] === "active" || "Active" ? <CheckCircleIcon /> : <CheckCircleIcon /> : "-"}
+                                    {item[5]}
+                                </td>
                                 <td className={styles.itemoptions}><MoreVertIcon /></td>
 
                             </tr>

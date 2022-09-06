@@ -1,5 +1,5 @@
 .modal {
-    position: relative;
+    position: absolute;
     width: 700px;
     height: 596px;
     left: 370px;
@@ -8,17 +8,16 @@
     border-radius: 16px;
 }
 
-.userText {
+.inviteText {
     position: absolute;
-    width: 112px;
+    width: 113px;
     height: 33px;
     left: 40px;
-    top: 20px;
+    top: 18px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
-    line-height: 150%;
     color: #111928;
 }
 
@@ -49,7 +48,6 @@
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 100%;
 }
 
 .inputName {
@@ -58,10 +56,11 @@
     width: 620px;
     height: 48px;
     left: 40px;
-    top: 132px;
+    top: 137px;
     background: #FFFFFF;
     border: 1px solid #DCDCE0;
     border-radius: 6px;
+    outline: none;
 }
 
 .email {
@@ -88,6 +87,7 @@
     background: #FFFFFF;
     border: 1px solid #DCDCE0;
     border-radius: 6px;
+    outline: none;
 }
 
 .phone {
@@ -101,6 +101,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 100%;
+    outline: none;
 }
 
 .select_country {
@@ -112,6 +113,7 @@
     top: 319px;
     background: #EBF5FF;
     border: 1px solid #DCDCE0;
+    outline: none;
 }
 
 .number {
@@ -124,6 +126,7 @@
     background: #FFFFFF;
     border: 1px solid #DCDCE0;
     border-radius: 6px;
+    outline: none;
 }
 
 .label_role {
@@ -162,7 +165,7 @@
     height: 41px;
     left: 40px;
     bottom: 142px;
-
+    background-color: white;
 }
 
 .button_cancel {

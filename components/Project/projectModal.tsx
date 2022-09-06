@@ -6,6 +6,7 @@ const ProjectModal = ({ modal, modalClose }: any) => {
     }
     return <div>
         <Modal
+            ariaHideApp={false}
             isOpen={modal}
             onRequestClose={handleClose}>
             <h2>hello</h2>

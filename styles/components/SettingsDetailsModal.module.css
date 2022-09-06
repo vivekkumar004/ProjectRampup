@@ -1,0 +1,132 @@
+.modal {
+    position: absolute;
+    left: 370px;
+    top: 140px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    height: 424px;
+    width: 700px;
+    font-family: 'Inter';
+    border: 1px solid;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #454754;
+}
+
+
+
+.title {
+    position: absolute;
+    width: 133px;
+    height: 33px;
+    left: 40px;
+    top: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line {
+    position: absolute;
+    width: 620px;
+    height: 1px;
+    left: 40px;
+    top: 85px;
+    background: #ECECEF;
+}
+
+.statusdata {
+    position: absolute;
+    left: 393px;
+    top: 143px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.status {
+    position: absolute;
+    left: 393px;
+    top: 116px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.skillname {
+    position: absolute;
+    left: 40px;
+    top: 116px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+
+    color: #757575;
+}
+
+.skilldata {
+    position: absolute;
+    left: 40px;
+    top: 143px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.verticalline {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 266px;
+    top: 117px;
+    background: #ECECEF;
+}
+
+.description {
+    position: absolute;
+    left: 40px;
+    top: 227px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+
+}
+
+.descriptiondata {
+    position: absolute;
+    height: 130px;
+    left: 40px;
+    top: 254px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 164%;
+    color: #111928;
+    width: 621px;
+    height: 130px;
+}
