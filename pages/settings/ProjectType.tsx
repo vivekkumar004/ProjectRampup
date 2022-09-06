@@ -52,7 +52,7 @@ const ProjectType = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, Data])
 
 
     return <div className={styles.container} >

@@ -37,7 +37,7 @@ const AdminUsers = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, Data])
 
 
     function handleright() {
