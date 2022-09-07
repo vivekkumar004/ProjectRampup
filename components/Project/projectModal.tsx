@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import styles from "../../styles/components/Project/ProjectModal.module.css"
+import styles from "../../styles/components/Project/projectModal.module.css"
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 

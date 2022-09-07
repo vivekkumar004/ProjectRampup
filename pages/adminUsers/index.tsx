@@ -12,44 +12,31 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const AdminUsers = () => {
     const Data: Array<any> = [];
-    for (let i = 0; i < 2; i++) {
-        Data.push([
-            "123",
-            "vivek",
-            "vivek@email.com",
-            "+1 (415)425-5588",
-            "Admin",
-            "active"
-        ]);
-    }
-    for (let i = 0; i < 2; i++) {
-        Data.push([
-            "123",
-            "vivek",
-            "vivek@email.com",
-            "+1 (415)425-5588",
-            "Admin",
-            "inactive"
-        ]);
-    }
-    for (let i = 0; i < 2; i++) {
-        Data.push([
-            "123",
-            "vivek",
-            "vivek@email.com",
-            "+1 (415)425-5588",
-            "Admin",
-            "invite sent"
-        ]);
-    }
-    for (let i = 0; i < 2; i++) {
-        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "rejected"
-        ]);
-    }
-    for (let i = 0; i < 2; i++) {
-        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin"
-        ]);
-    }
+
+    const datas = React.useCallback(() => {
+        for (let i = 0; i < 2; i++) {
+            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "active"
+            ]);
+        }
+        for (let i = 0; i < 2; i++) {
+            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "inactive"
+            ]);
+        }
+        for (let i = 0; i < 2; i++) {
+            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "invite sent"
+            ]);
+        }
+        for (let i = 0; i < 2; i++) {
+            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "rejected"
+            ]);
+        }
+        for (let i = 0; i < 2; i++) {
+            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin"
+            ]);
+        }
+
+    }, [])
+
 
 
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -75,7 +62,7 @@ const AdminUsers = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, Data])
 
 
     function handleright() {
