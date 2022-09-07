@@ -9,14 +9,14 @@
     position: absolute;
     display: block;
     height: 838px;
-    width: 1696px;
+    width: 2130px;
     overflow-y: scroll;
     overflow-x: scroll;
 }
 
 .table_head {
     position: absolute;
-    width: 1696px;
+    width: 2130px;
     height: 46px;
     top: 0px;
     background: #F3F4F6;
@@ -36,7 +36,6 @@
     height: 18px;
     width: 18px;
     text-align: center;
-
 }
 
 .arrow {
@@ -46,64 +45,81 @@
     height: 18px;
 }
 
-.project_id {
+.employee_id {
+    height: 21px;
     position: absolute;
-    top: 9px;
     left: 66px;
+    top: 10px;
 }
 
 .name {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 221px;
+    left: 238px;
+    top: 10px;
 }
 
-.client {
+.email {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 361px;
+    left: 377px;
+    top: 10px;
 }
 
-.project_type {
+.project_name {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 518px;
+    left: 644px;
+    top: 10px;
 }
 
-.project_responsible {
+.skills {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 693px;
+    left: 926px;
+    top: 10px;
 }
 
-.start_date {
+.employee_type {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 917px;
+    left: 1170px;
+    top: 10px;
 }
 
-.end_date {
+.joining_date {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 1075px;
+    left: 1362px;
+    top: 10px;
 }
 
-.project_status {
+.salary {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 1226px;
+    left: 1535px;
+    top: 10px;
 }
 
-.monthly_status {
+.utilization {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 1411px;
+    left: 1674px;
+    top: 10px;
+}
+
+.revenue_opportunity {
+    height: 21px;
+    position: absolute;
+    left: 1831px;
+    top: 10px;
 }
 
 .options {
+    height: 21px;
     position: absolute;
-    top: 9px;
-    left: 1603px;
+    left: 2064px;
+    top: 10px;
 }
 
 .tablebody {
@@ -111,7 +127,7 @@
     top: 46px;
     position: absolute;
     height: 792px;
-    width: 1696px;
+    width: 2130px;
 }
 
 .rowItemContainer {
@@ -119,7 +135,7 @@
     display: flex;
     align-items: center;
     height: 65px;
-    width: 1696px;
+    width: 2130px;
     border-bottom: 1px solid #E5E7EB;
     font-family: 'Inter';
     font-style: normal;
@@ -137,72 +153,85 @@
     top: 21px;
 }
 
-.itemprojectid {
+.itememployee_id {
     position: absolute;
-    left: 66px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 66px;
 }
 
 .itemname {
     position: absolute;
-    left: 221px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 238px;
 }
 
-.itemclient {
+.itememail {
     position: absolute;
-    left: 361px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 377px;
 }
 
-.itemprojecttype {
+.itemproject_name {
     position: absolute;
-    left: 518px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 644px;
 }
 
-.itemprojectresponsible {
+.itemskills {
     position: absolute;
-    left: 693px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 926px;
 }
 
-.itemstartdate {
-    position: absolute;
-    left: 917px;
-    top: 21px;
-    height: 24px;
+.borderitems {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 0px 7px 0px 7px;
+    margin: 2px;
 }
 
-.itemenddate {
+.itememployee_type {
     position: absolute;
-    left: 1075px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 1170px;
 }
 
-.itemprojectstatus {
+.itemjoining_date {
     position: absolute;
-    left: 1226px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 1362px;
 }
 
-.itemmonthlystatus {
+.itemsalary {
     position: absolute;
-    left: 1411px;
-    top: 21px;
     height: 24px;
+    top: 21px;
+    left: 1535px;
+}
+
+.itemutilization {
+    position: absolute;
+    height: 24px;
+    top: 21px;
+    left: 1674px;
+}
+
+.itemrevenue_opportunity {
+    position: absolute;
+    height: 24px;
+    top: 21px;
+    left: 1831px;
 }
 
 .itemoptions {
     position: absolute;
-    left: 1629px;
     top: 21px;
-    height: 24px;
+    left: 2075px;
 }

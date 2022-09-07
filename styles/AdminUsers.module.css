@@ -224,14 +224,14 @@
     right: 390px;
     border: 1px solid #262626;
     border-radius: 8px;
-    padding: 5px 6px;
+    padding: 0px 6px;
 
 }
 
 .itemstatus {
     position: absolute;
     top: 21px;
-    right: 260px;
+    left: 1031px;
 }
 
 .itemoptions {

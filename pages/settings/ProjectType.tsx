@@ -52,10 +52,10 @@ const ProjectType = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page, Data])
+    }, [page])
 
 
-    return <div className={styles.container} >
+    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }} >
         <DashboardSidebar title="Project Type" modal={modalOpen} modalOpen={setModalOpen}
             button_title="Add Project Type" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />

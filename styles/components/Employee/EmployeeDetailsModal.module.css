@@ -1,0 +1,378 @@
+.modal {
+    position: absolute;
+    width: 700px;
+    height: 667px;
+    left: 370px;
+    top: 140px;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.close {
+    color: #454754;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    height: 14px;
+    width: 14px;
+}
+
+.title {
+    position: absolute;
+    width: 133px;
+    height: 33px;
+    left: 40px;
+    top: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line {
+    position: absolute;
+    width: 620px;
+    height: 1px;
+    left: 40px;
+    top: 85px;
+    background: #ECECEF;
+}
+
+.employeeid {
+    position: absolute;
+    left: 40px;
+    top: 116px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itememployeeid {
+    position: absolute;
+    left: 40px;
+    top: 143px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line1 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 225px;
+    top: 127px;
+    background: #ECECEF;
+}
+
+.name {
+    position: absolute;
+    left: 250px;
+    top: 116px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemname {
+    position: absolute;
+    left: 250px;
+    top: 143px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line2 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 414px;
+    top: 127px;
+    background: #ECECEF;
+}
+
+
+.email {
+    position: absolute;
+    left: 439px;
+    top: 116px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itememail {
+    position: absolute;
+    left: 439px;
+    top: 143px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.Contactnumber {
+    position: absolute;
+    left: 40px;
+    top: 210px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemContactnumber {
+    position: absolute;
+    left: 40px;
+    top: 227px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line3 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 225px;
+    top: 228px;
+    background: #ECECEF;
+}
+
+.EmployeeType {
+    position: absolute;
+    left: 250px;
+    top: 210px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemEmployeeType {
+    position: absolute;
+    left: 250px;
+    top: 227px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line4 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 414px;
+    top: 228px;
+    background: #ECECEF;
+}
+
+.joiningdate {
+    position: absolute;
+    left: 439px;
+    top: 210px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemjoiningdate {
+    position: absolute;
+    left: 439px;
+    top: 227px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.Salary {
+    position: absolute;
+    left: 40px;
+    top: 320px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemSalary {
+    position: absolute;
+    left: 40px;
+    top: 338px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line5 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 225px;
+    top: 338px;
+    background: #ECECEF;
+}
+
+.Utilization {
+    position: absolute;
+    left: 250px;
+    top: 320px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemUtilization {
+    position: absolute;
+    left: 250px;
+    top: 338px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line6 {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    left: 414px;
+    top: 338px;
+    background: #ECECEF;
+}
+
+.RevenueOpportunity {
+    position: absolute;
+    left: 439px;
+    top: 320px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemRevenueOpportunity {
+    position: absolute;
+    left: 439px;
+    top: 338px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.skills {
+    position: absolute;
+    left: 40px;
+    top: 449px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemskills {
+    position: absolute;
+    left: 40px;
+    top: 476px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.Projectname {
+    position: absolute;
+    left: 40px;
+    top: 568px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.itemProjectname {
+    position: absolute;
+    left: 40px;
+    top: 595px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.borders {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 3px 11px;
+    margin: 2px;
+}

@@ -1,0 +1,274 @@
+.modal {
+    position: absolute;
+    left: 370px;
+    top: 129px;
+    height: 802px;
+    width: 700px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    font-family: 'Inter';
+}
+
+.close {
+    position: absolute;
+    color: #454754;
+    height: 14px;
+    width: 14px;
+    right: 30px;
+    top: 30px;
+}
+
+.title {
+    position: absolute;
+    left: 40px;
+    top: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line {
+    position: absolute;
+    background: #ECECEF;
+    width: 620px;
+    height: 1px;
+    left: 40px;
+    top: 85px;
+}
+
+.name {
+    position: absolute;
+    left: 40px;
+    top: 101px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.nameinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 620px;
+    height: 48px;
+    left: 40px;
+    top: 137px;
+}
+
+.email {
+    position: absolute;
+    left: 40px;
+    top: 200px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.emailinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 620px;
+    height: 48px;
+    left: 40px;
+    top: 236px;
+}
+
+.phonenumber {
+    position: absolute;
+    left: 40px;
+    top: 299px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.joiningdate {
+    position: absolute;
+    left: 430px;
+    top: 299px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.joiningdateinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 230px;
+    height: 48px;
+    left: 430px;
+    top: 335px;
+}
+
+
+.skills {
+    position: absolute;
+    left: 40px;
+    top: 398px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.skillinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 295px;
+    height: 48px;
+    left: 40px;
+    top: 434px;
+}
+
+.employeetype {
+    position: absolute;
+    left: 365px;
+    top: 398px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.employeetypeinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 295px;
+    height: 48px;
+    left: 365px;
+    top: 434px;
+}
+
+.salary {
+    position: absolute;
+    left: 40px;
+    top: 497px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.salaryinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 295px;
+    height: 48px;
+    left: 40px;
+    top: 533px;
+}
+
+.utilization {
+    position: absolute;
+    left: 365px;
+    top: 497px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.utilizationinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 295px;
+    height: 48px;
+    left: 365px;
+    top: 533px;
+}
+
+.RevenueOpportunity {
+    position: absolute;
+    left: 40px;
+    top: 593px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.RevenueOpportunityinput {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+    outline: none;
+    width: 295px;
+    height: 48px;
+    left: 40px;
+    top: 632px;
+}
+
+.buttoncancel {
+    position: absolute;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    width: 120px;
+    height: 42px;
+    left: 406px;
+    top: 720px;
+}
+
+.buttonadd {
+    position: absolute;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    width: 120px;
+    height: 42px;
+    left: 540px;
+    top: 720px;
+}

@@ -1,6 +1,7 @@
 import React from "react"
 import DashboardSidebar from "../../components/DashboardSidebar"
 import AdminUsersModal from "../../components/AdminUsers/AdminUsersModal"
+import AdminUsersDetailsModal from "../../components/AdminUsers/AdminUsersDetailsModal"
 import styles from "../../styles/AdminUsers.module.css"
 import Pagination from "../../components/Pagination";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -11,7 +12,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const AdminUsers = () => {
     const Data: Array<any> = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2; i++) {
         Data.push([
             "123",
             "vivek",
@@ -21,10 +22,47 @@ const AdminUsers = () => {
             "active"
         ]);
     }
+    for (let i = 0; i < 2; i++) {
+        Data.push([
+            "123",
+            "vivek",
+            "vivek@email.com",
+            "+1 (415)425-5588",
+            "Admin",
+            "inactive"
+        ]);
+    }
+    for (let i = 0; i < 2; i++) {
+        Data.push([
+            "123",
+            "vivek",
+            "vivek@email.com",
+            "+1 (415)425-5588",
+            "Admin",
+            "invite sent"
+        ]);
+    }
+    for (let i = 0; i < 2; i++) {
+        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "rejected"
+        ]);
+    }
+    for (let i = 0; i < 2; i++) {
+        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin"
+        ]);
+    }
+
+
     const [modalOpen, setModalOpen] = React.useState(false);
+    const [viewModalDetails, setViewModalDetails] = React.useState("");
+    const [detailsModalOpen, setDetailsModalOpen] = React.useState(false);
     const [page, setPage] = React.useState({ startno: 0, endno: 15 });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
+
+    const handleViewModal = (item: any) => {
+        setDetailsModalOpen(true)
+        setViewModalDetails(item)
+    }
 
     function handleleft() {
         if (page.startno === 1) {
@@ -37,7 +75,7 @@ const AdminUsers = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page, Data])
+    }, [page])
 
 
     function handleright() {
@@ -48,11 +86,12 @@ const AdminUsers = () => {
     }
 
 
-    return <div className={styles.container} style={{ backgroundColor: modalOpen ? "#18181B" : "white" }}>
+    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen}
             button_title="  Add User" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
         <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
+        <AdminUsersDetailsModal data={viewModalDetails} isOpen={detailsModalOpen} setClose={setDetailsModalOpen} />
 
         <div style={{ width: controlDashboard ? "1188px" : "1340px", left: controlDashboard ? "233px" : "81px" }} className={styles.table_container} >
             <table>
@@ -72,7 +111,7 @@ const AdminUsers = () => {
 
                     {currentData.map((item, index) => {
                         return (
-                            <tr className={styles.rowContainer} key={index}>
+                            <tr onClick={() => handleViewModal(item)} className={styles.rowContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
                                 <td className={styles.itemuserid}>{item[0]}</td>
                                 <td className={styles.itemname}>{item[1]}</td>
@@ -80,9 +119,12 @@ const AdminUsers = () => {
                                 <td className={styles.itemphone}>{item[3]}</td>
                                 <td className={styles.itemrole}>{item[4]}</td>
                                 <td className={styles.itemstatus}>
-                                    {item[5] ? item[5] === "Rejected" || "rejected" || "inactive" || "Inactive" ? <CancelIcon style={{ color: "#E02424" }} /> :
-                                        item[5] === "active" || "Active" ? <CheckCircleIcon /> : <CheckCircleIcon /> : "-"}
-                                    {item[5]}
+                                    {
+                                        item[5] ? <span>{
+                                            item[5] == "Rejected" || "rejected" || "inactive" || "Inactive" ? <span>act</span> : <span>inn</span>
+                                        }
+                                        </span> : "-"
+                                    }
                                 </td>
                                 <td className={styles.itemoptions}><MoreVertIcon /></td>
 
