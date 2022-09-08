@@ -92,6 +92,7 @@
 .arrow {
     position: relative;
     top: 3px;
+    left: 0px;
     width: 18px;
     height: 18px;
 }
