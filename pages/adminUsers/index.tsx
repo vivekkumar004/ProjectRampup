@@ -13,31 +13,10 @@ import CancelIcon from '@mui/icons-material/Cancel';
 const AdminUsers = () => {
     const Data: Array<any> = [];
 
-    const datas = React.useCallback(() => {
-        for (let i = 0; i < 2; i++) {
-            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "active"
-            ]);
-        }
-        for (let i = 0; i < 2; i++) {
-            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "inactive"
-            ]);
-        }
-        for (let i = 0; i < 2; i++) {
-            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "invite sent"
-            ]);
-        }
-        for (let i = 0; i < 2; i++) {
-            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "rejected"
-            ]);
-        }
-        for (let i = 0; i < 2; i++) {
-            Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin"
-            ]);
-        }
-
-    }, [Data])
-    datas();
-
+    for (let i = 0; i < 20; i++) {
+        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "active"
+        ]);
+    }
 
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
@@ -60,17 +39,16 @@ const AdminUsers = () => {
         }
     }
 
-    React.useEffect(() => {
-        setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page, Data])
-
-
     function handleright() {
         if (page["endno"] === Data.length) {
             return;
         }
         setPage(prev => ({ startno: prev.startno + 15, endno: prev.endno + 15 }))
     }
+
+    React.useEffect(() => {
+        setCurrentData(Data.slice(page["startno"], page["endno"]))
+    }, [page, Data])
 
 
     return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
