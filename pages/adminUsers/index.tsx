@@ -48,7 +48,7 @@ const AdminUsers = () => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page, Data])
+    }, [page])
 
 
     return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
