@@ -35,8 +35,8 @@ const AdminUsers = () => {
             ]);
         }
 
-    }, [])
-
+    }, [Data])
+    datas();
 
 
     const [modalOpen, setModalOpen] = React.useState(false);
