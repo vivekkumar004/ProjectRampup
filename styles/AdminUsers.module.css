@@ -156,8 +156,6 @@
     left: 15px;
 }
 
-
-
 .itemuserid {
     position: absolute;
     height: 24px;
@@ -231,6 +229,8 @@
 .itemstatus {
     position: absolute;
     top: 21px;
+    justify-content: center;
+    display: flex;
     left: 1031px;
 }
 
@@ -238,4 +238,23 @@
     position: absolute;
     top: 24px;
     right: 50px;
+}
+
+.optionsContainer {
+    position: absolute;
+    width: 160px;
+    height: 120px;
+    right: 0px;
+    top: 25px;
+    background: white;
+    z-index: 1;
+}
+
+.optionButtons {
+    text-align: left;
+    border: none;
+    color: #111928;
+    height: 36px;
+    width: 160px;
+    background: none;
 }

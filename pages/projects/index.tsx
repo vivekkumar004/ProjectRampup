@@ -7,6 +7,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React from "react"
 import ProjectDetailsModal from "../../components/Project/ProjectDetailsModal";
+import ProjectUpdateUtilization from "../../components/Project/ProjectUpdateUtilization";
 
 const Projects = () => {
     const Data: Array<any> = [];
@@ -33,7 +34,7 @@ const Projects = () => {
             "01 Aug 2022",
             "24 Sep 2022",
             "Running",
-            "Behind schedule"
+            "Ahead schedule"
         ]);
     }
 
@@ -44,7 +45,8 @@ const Projects = () => {
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
     const [page, setPage] = React.useState({ startno: 0, endno: 15 });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
-
+    const [viewOptionsLocation, setViewOptionsLocation] = React.useState<Number>()
+    const [viewUpdateUtilization, setViewUpdateUtilization] = React.useState(false);
 
     const handleViewModal = (item: any) => {
         setDetailsModalOpen(true)
@@ -67,16 +69,25 @@ const Projects = () => {
         setPage(prev => ({ startno: prev.startno + 15, endno: prev.endno + 15 }))
     }
 
+    function handleOptions(index: number) {
+        if (index === viewOptionsLocation) {
+            setViewOptionsLocation(NaN)
+        }
+        else
+            setViewOptionsLocation(index)
+    }
+
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
     }, [page])
 
-    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
+    return <div className={styles.container} style={{ opacity: modalOpen || detailsModalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Project" modal={modalOpen} modalOpen={setModalOpen} button_title="Add Project"
             controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <ProjectModal modal={modalOpen} modalClose={setModalOpen} />
         <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
         <ProjectDetailsModal data={viewModalDetails} isOpen={detailsModalOpen} setClose={setDetailsModalOpen} />
+        <ProjectUpdateUtilization isOpen={viewUpdateUtilization} setClose={setViewUpdateUtilization} />
 
         <div style={{ width: controlDashboard ? "1188px" : "1340px", left: controlDashboard ? "233px" : "81px" }} className={styles.table_container} >
             <table>
@@ -98,20 +109,28 @@ const Projects = () => {
                 <tbody className={styles.tablebody}>
                     {currentData.map((item, index) => {
                         return (
-                            <tr onClick={() => handleViewModal(item)} className={styles.rowItemContainer} key={index}>
+                            <tr className={styles.rowItemContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
-                                <td className={styles.itemprojectid}>{item[0]}</td>
-                                <td className={styles.itemname}>{item[1]}</td>
-                                <td className={styles.itemclient}>{item[2]}</td>
-                                <td className={styles.itemprojecttype}>{item[3]}</td>
-                                <td className={styles.itemprojectresponsible}>{item[4]}</td>
-                                <td className={styles.itemstartdate}>{item[5]}</td>
-                                <td className={styles.itemenddate}>{item[6]}</td>
-                                <td style={{ color: item[7] === "Running" || "running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectid}>{item[0]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item[1]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemclient}>{item[2]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojecttype}>{item[3]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectresponsible}>{item[4]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemstartdate}>{item[5]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemenddate}>{item[6]}</td>
+                                <td onClick={() => handleViewModal(item)} style={{ color: item[7] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>
                                     {item[7]}
                                 </td>
-                                <td className={styles.itemmonthlystatus}>{item[8]}</td>
-                                <td className={styles.itemoptions}><MoreVertIcon /></td>
+                                <td onClick={() => handleViewModal(item)} style={{ color: item[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{item[8]}</td>
+                                <td onClick={() => handleOptions(index)} className={styles.itemoptions}><MoreVertIcon />
+                                    {
+                                        viewOptionsLocation === index && <div className={styles.optionsContainer}>
+                                            <button className={styles.optionButtons}>Edit</button>
+                                            <button className={styles.optionButtons}>Active / Inactive</button>
+                                            <button onClick={() => setViewUpdateUtilization(true)} className={styles.optionButtons}>Update Utilization</button>
+                                        </div>
+                                    }
+                                </td>
                             </tr>
 
                         )
@@ -119,6 +138,7 @@ const Projects = () => {
 
                 </tbody>
             </table>
+
         </div>
     </div>
 

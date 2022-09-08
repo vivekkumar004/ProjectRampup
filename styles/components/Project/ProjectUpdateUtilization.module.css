@@ -1,0 +1,69 @@
+.modal {
+    position: relative;
+    width: 700px;
+    height: 805px;
+    left: 370px;
+    top: 127px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid;
+}
+
+.close {
+    position: absolute;
+    color: #454754;
+    height: 14px;
+    width: 14px;
+    top: 30px;
+    right: 30px;
+}
+
+.title {
+    position: absolute;
+    width: 191px;
+    height: 33px;
+    left: 40px;
+    top: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    color: #111928;
+}
+
+.line {}
+
+.Projectname {}
+
+.nameinput {}
+
+.ProjectType {}
+
+.ProjectTypeinput {}
+
+.monthdate {}
+
+.monthdateinput {}
+
+.yeardate {}
+
+.yeardateinput {}
+
+.MonthlyCost {}
+
+.MonthlyCostinput {}
+
+.Monthlyutilization {}
+
+.Monthlyutilizationinput {}
+
+.CostYTD {}
+
+.CostYTDinput {}
+
+.buttonaddanother {}
+
+.buttoncancel {}
+
+.buttonsave {}

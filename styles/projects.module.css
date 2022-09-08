@@ -206,3 +206,21 @@
     top: 21px;
     height: 24px;
 }
+
+.optionsContainer {
+    position: absolute;
+    width: 160px;
+    height: 120px;
+    top: 30px;
+    right: 0px;
+    background: white;
+    z-index: 1;
+}
+
+.optionButtons {
+    border: none;
+    color: #111928;
+    height: 36px;
+    width: 160px;
+    background: none;
+}

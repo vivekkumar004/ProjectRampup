@@ -47,11 +47,11 @@ const ProjectDetailsModal = ({ data, isOpen, setClose }: any) => {
             <span className={styles.line5}></span>
 
             <p className={styles.projectstatus}>Project Status</p>
-            <p className={styles.itemprojectstatus}>{data[7]}</p>
+            <p style={{ color: data[7] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>{data[7]}</p>
             <span className={styles.line6}></span>
 
             <p className={styles.monthlystatus}>Monthly Status</p>
-            <p className={styles.itemmonthlystatus}>{data[8]}</p>
+            <p style={{ color: data[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{data[8]}</p>
         </Modal>
     </div>
 }
