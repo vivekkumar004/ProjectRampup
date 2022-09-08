@@ -34,7 +34,6 @@
 
 .name {
     position: absolute;
-    width: 80px;
     height: 21px;
     left: 66px;
     top: 12px;
@@ -48,7 +47,6 @@
 
 .description {
     position: absolute;
-    width: 119px;
     height: 21px;
     left: 371px;
     top: 12px;
@@ -62,7 +60,6 @@
 
 .status {
     position: absolute;
-    width: 84px;
     height: 21px;
     left: 946px;
     top: 12px;
