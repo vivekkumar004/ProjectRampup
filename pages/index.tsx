@@ -35,22 +35,22 @@ const Home: NextPage = () => {
     setTimeout(() => setShowSplash(false), 2000);
   }, []);
 
-  // React.useEffect(() => {
-  //   setWrongPassword(false);
-  //   if (email.length > 1) {
-  //     if (mailFormat.test(email) && password.length > 1) {
-  //       setBtnDisable(false)
-  //     }
-  //     else if (mailFormat.test(email)) {
-  //       setemalValid(false)
-  //     }
-  //     else {
-  //       setemalValid(true)
-  //     }
-  //   }
-  // }, [email, password])
+  React.useEffect(() => {
+    setWrongPassword(false);
+    if (email.length > 1) {
+      if (mailFormat.test(email) && password.length > 1) {
+        setBtnDisable(false)
+      }
+      else if (mailFormat.test(email)) {
+        setemalValid(false)
+      }
+      else {
+        setemalValid(true)
+      }
+    }
+  }, [email, password])
 
-  const tempdata = {
+  const loginCredentials = {
     "user": {
       "email": email,
       "password": password
@@ -59,10 +59,10 @@ const Home: NextPage = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    axios.post("https://sheltered-retreat-12255.herokuapp.com/users/sign_in", tempdata)
+    axios.post("https://tranquil-hamlet-54124.herokuapp.com/users/sign_in", loginCredentials)
       .then(res => {
         console.log(res);
-        if (res.data.message === 'You are logged in.') {
+        if (res.data.user.email === email) {
           router.push('/adminUsers')
         }
         else {

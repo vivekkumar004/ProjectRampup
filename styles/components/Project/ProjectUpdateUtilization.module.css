@@ -1,12 +1,18 @@
 .modal {
-    position: relative;
+    position: absolute;
     width: 700px;
     height: 805px;
     left: 370px;
     top: 127px;
     background: #FFFFFF;
     border-radius: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
     border: 1px solid;
+    overflow-y: auto;
 }
 
 .close {
@@ -32,38 +38,302 @@
     color: #111928;
 }
 
-.line {}
+.line {
+    position: absolute;
+    width: 620px;
+    height: 1px;
+    left: 40px;
+    top: 85px;
+    background: #ECECEF;
+}
 
-.Projectname {}
+.Projectname {
+    position: absolute;
+    height: 14px;
+    left: 40px;
+    top: 101px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.nameinput {}
+.nameinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 417px;
+    height: 48px;
+    left: 40px;
+    top: 137px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.ProjectType {}
+.ProjectType {
+    position: absolute;
+    height: 14px;
+    left: 487px;
+    top: 101px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.ProjectTypeinput {}
 
-.monthdate {}
+.ProjectTypeinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 173px;
+    height: 48px;
+    left: 487px;
+    top: 137px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.monthdateinput {}
+.monthdate {
+    position: absolute;
+    height: 14px;
+    left: 40px;
+    top: 200px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.yeardate {}
 
-.yeardateinput {}
+.monthdateinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 40px;
+    top: 236px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.MonthlyCost {}
+.yeardate {
+    position: absolute;
+    height: 14px;
+    left: 365px;
+    top: 200px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.MonthlyCostinput {}
+.yeardateinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 365px;
+    top: 236px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.Monthlyutilization {}
+.MonthlyCost {
+    position: absolute;
+    height: 14px;
+    left: 40px;
+    top: 299px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.Monthlyutilizationinput {}
+.MonthlyCostinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 186px;
+    height: 48px;
+    left: 40px;
+    top: 335px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px
+}
 
-.CostYTD {}
+.Monthlyutilization {
+    position: absolute;
+    height: 14px;
+    left: 257px;
+    top: 299px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.CostYTDinput {}
+.Monthlyutilizationinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 186px;
+    height: 48px;
+    left: 257px;
+    top: 335px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.buttonaddanother {}
+.CostYTD {
+    position: absolute;
+    height: 14px;
+    left: 474px;
+    top: 299px;
+    color: #212121;
+    text-transform: uppercase;
+}
 
-.buttoncancel {}
+.CostYTDinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 186px;
+    height: 48px;
+    left: 474px;
+    top: 335px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
 
-.buttonsave {}
+.separater {
+    position: absolute;
+    width: 620px;
+    height: 1px;
+    left: 40px;
+    top: 413px;
+    background: #ECECEF;
+}
+
+.buttonaddanother {
+    position: absolute;
+    height: 41px;
+    padding: -2px 17px;
+    background: #FFFFFF;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    left: 40px;
+    width: 135px;
+}
+
+.buttoncancel {
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    position: absolute;
+    width: 88px;
+    height: 42px;
+    left: 488px;
+    top: 723px;
+    padding: 9px 17px;
+}
+
+.buttonsave {
+    border: 1px solid #D1D5DB;
+    padding: 9px 17px;
+    position: absolute;
+    width: 72px;
+    height: 42px;
+    left: 588px;
+    top: 723px;
+    border-radius: 6px;
+}
+
+.AddAnotherBlock {
+    position: absolute;
+    width: 612px;
+    height: 69px;
+    left: 40px;
+}
+
+.AddAnotherEmpName {
+    position: absolute;
+    top: -15px;
+    width: 121px;
+    height: 14px;
+    left: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.AddAnotherEmpInput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 295px;
+    height: 48px;
+    left: 0px;
+    top: 21px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.AddAnotherutil {
+    position: absolute;
+    width: 88px;
+    height: 14px;
+    left: 325px;
+    top: -15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.AddAnotherutilinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100px;
+    height: 48px;
+    left: 325px;
+    top: 21px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.AddAnothercost {
+    position: absolute;
+    width: 40px;
+    height: 14px;
+    left: 465px;
+    top: -15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #212121;
+}
+
+.AddAnothercostinput {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100px;
+    height: 48px;
+    left: 465px;
+    top: 21px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCE0;
+    border-radius: 6px;
+}
+
+.AddAnotherdeletebutton {
+    width: 16px;
+    height: 19px;
+    left: 585px;
+    top: 25px;
+    position: absolute;
+    color: #F05252;
+    background: none;
+    border: none;
+}

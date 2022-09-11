@@ -7,35 +7,34 @@ import { HiTrash } from "react-icons/hi";
 
 const ProjectUpdateUtilization = ({ isOpen, setClose }: any) => {
 
-    const [fieldsCount, setFieldsCount] = React.useState(1);
-    const addAnotherList: any = [];
-    for (let i = 1; i <= fieldsCount; i++) {
-        addAnotherList.push(
-            <div className={styles.utSubBlock}>
-                <div className={styles.utTextBlock}>
-                    <p className={styles.utText}>Project Name</p>
-                    <input type="text" placeholder="Enter" className={styles.utInput} />
-                </div>
-                <div className={styles.utTextBlock} style={{ marginRight: "10px" }}>
-                    <p className={styles.utText}>utilization</p>
-                    <input
-                        type="number"
-                        defaultValue={0}
-                        className={styles.utNumberInput}
-                    />
-                </div>
+    const [addAnotherCount, setAddAnotherCount] = React.useState(1);
+    const [totalFields, setTotalFields] = React.useState<Array<any>>([]);
+    let Addanothertopheight = 354;
+    let Addanotherbutton = 462;
 
-                <div className={styles.deleteBlock}>
-                    <button
-                        disabled={fieldsCount <= 1 ? true : false}
-                        className={styles.utDeleteBtn}
-                    >
-                        <HiTrash fontSize="24px" />
+    React.useEffect(() => {
+        const addAnotherList: any = [];
+        for (let i = 1; i <= addAnotherCount; i++) {
+            addAnotherList.push(
+                <div style={{ top: 354 + 90 * i }} className={styles.AddAnotherBlock}>
+                    <p className={styles.AddAnotherEmpName}>employee Name</p>
+                    <select defaultValue={"Please select..."} className={styles.AddAnotherEmpInput}>
+                        <option disabled value="Please select..." >Please select...</option>
+                        <option value="Active">abc</option>
+                        <option value="InActive">def</option>
+                    </select>
+                    <p className={styles.AddAnotherutil}>utilization</p>
+                    <input type="number" defaultValue={0} className={styles.AddAnotherutilinput} />
+                    <p className={styles.AddAnothercost}>cost</p>
+                    <input type="number" defaultValue={0} className={styles.AddAnothercostinput} />
+                    <button onClick={() => setAddAnotherCount(addAnotherCount - 1)} disabled={addAnotherCount <= 1 ? true : false} className={styles.AddAnotherdeletebutton}                >
+                        <HiTrash style={{ color: "#F05252" }} fontSize="24px" />
                     </button>
                 </div>
-            </div>
-        );
-    }
+            );
+        }
+        setTotalFields(addAnotherList)
+    }, [addAnotherCount])
 
     const handleClose = () => {
         setClose(false)
@@ -65,8 +64,9 @@ const ProjectUpdateUtilization = ({ isOpen, setClose }: any) => {
             <input className={styles.Monthlyutilizationinput} type="text" />
             <p className={styles.CostYTD}>Cost YTD</p>
             <input className={styles.CostYTDinput} type="text" />
-
-            <button onClick={() => setFieldsCount(fieldsCount + 1)} className={styles.buttonaddanother} type="button"><pre>+ Add another</pre></button>
+            <span className={styles.separater}></span>
+            <div>{totalFields}</div>
+            <button style={{ top: 462 + 90 * addAnotherCount }} onClick={() => setAddAnotherCount(addAnotherCount + 1)} className={styles.buttonaddanother} type="button"><pre>+ Add another</pre></button>
             <button onClick={handleClose} className={styles.buttoncancel} type="button">Cancel</button>
             <button className={styles.buttonsave} type="button">Save</button>
         </Modal>
