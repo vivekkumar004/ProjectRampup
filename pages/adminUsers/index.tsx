@@ -9,7 +9,9 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { NumberFormat } from "libphonenumber-js/types"
+import { NumberFormat } from "libphonenumber-js/types";
+import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
+
 
 const AdminUsers = () => {
     const Data: Array<any> = [];
@@ -126,3 +128,10 @@ const AdminUsers = () => {
 
 }
 export default AdminUsers;
+
+export async function getServerSideProps(context: any) {
+    console.log(getCookie("new", context))
+    return {
+        props: {},
+    }
+}

@@ -26,7 +26,6 @@
 
 .title {
     position: absolute;
-    width: 191px;
     height: 33px;
     left: 40px;
     top: 25px;
@@ -249,7 +248,6 @@
 .AddAnotherEmpName {
     position: absolute;
     top: -15px;
-    width: 121px;
     height: 14px;
     left: 0px;
     font-family: 'Inter';

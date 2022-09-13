@@ -19,7 +19,6 @@
 
 .title {
     position: absolute;
-    width: 125px;
     height: 33px;
     left: 40px;
     top: 30px;
@@ -42,7 +41,6 @@
 
 .name {
     position: absolute;
-    width: 42px;
     height: 14px;
     left: 40px;
     top: 106px;
@@ -98,7 +96,6 @@
 
 .projecttype {
     position: absolute;
-    width: 106px;
     height: 14px;
     left: 40px;
     top: 304px;
@@ -126,7 +123,6 @@
 
 .projectresponsible {
     position: absolute;
-    width: 164px;
     height: 14px;
     left: 365px;
     top: 304px;
@@ -154,7 +150,6 @@
 
 .startdata {
     position: absolute;
-    width: 86px;
     height: 14px;
     left: 40px;
     top: 403px;
@@ -182,7 +177,6 @@
 
 .enddate {
     position: absolute;
-    width: 69px;
     height: 14px;
     left: 365px;
     top: 403px;
@@ -210,7 +204,6 @@
 
 .projectstatus {
     position: absolute;
-    width: 124px;
     height: 14px;
     left: 40px;
     top: 502px;
@@ -240,7 +233,6 @@
 
 .monthlystatus {
     position: absolute;
-    width: 129px;
     height: 14px;
     left: 365px;
     top: 502px;
