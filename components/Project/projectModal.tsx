@@ -22,7 +22,7 @@ const ProjectModal = ({ modal, modalClose, Dropdown }: any) => {
             <input className={styles.nameinput} placeholder="Enter" type="text" />
             <p className={styles.client}>Client</p>
             <select className={styles.clientinput}>
-                {Dropdown.map((item) => <option value={item}>{item}</option>
+                {Dropdown.map((item) => <option key={item[1]} value={item}>{item}</option>
                 )}
             </select>
             <p className={styles.projecttype}>project type</p>
