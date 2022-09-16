@@ -14,7 +14,7 @@ import PrivateRouteHoc from "../../components/PrivateRouteHoc";
 import axios from "axios"
 
 
-const AdminUsers = ({ Data }) => {
+const AdminUsers = ({ Data }: any) => {
 
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
@@ -54,7 +54,7 @@ const AdminUsers = ({ Data }) => {
     }
 
 
-    const handleDelete = (id) => {
+    const handleDelete = (id: any) => {
         axios.delete(`https://tranquil-hamlet-54124.herokuapp.com/user_profile/${id}`,
             {
                 headers: {
@@ -109,7 +109,7 @@ const AdminUsers = ({ Data }) => {
                 </thead>
                 <tbody className={styles.tablebody}>
 
-                    {currentData.map((item, index) => {
+                    {currentData.map((item: any, index: any) => {
                         return (
                             <tr className={styles.rowContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>

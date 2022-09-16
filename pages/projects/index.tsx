@@ -12,7 +12,7 @@ import PrivateRouteHoc from "../../components/PrivateRouteHoc";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 
-const Projects = (props) => {
+const Projects = (props: any) => {
 
     const [list, setList] = React.useState(props.Data);
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -83,7 +83,7 @@ const Projects = (props) => {
                     </tr>
                 </thead>
                 <tbody className={styles.tablebody}>
-                    {currentData.map((item, index): any => {
+                    {currentData.map((item: any, index: any) => {
                         return (
                             <tr className={styles.rowItemContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
