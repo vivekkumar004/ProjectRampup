@@ -16,7 +16,7 @@ const ProjectUpdateUtilization = ({ isOpen, setClose }: any) => {
         const addAnotherList: any = [];
         for (let i = 1; i <= addAnotherCount; i++) {
             addAnotherList.push(
-                <div style={{ top: 354 + 90 * i }} className={styles.AddAnotherBlock}>
+                <div key={i} style={{ top: 354 + 90 * i }} className={styles.AddAnotherBlock}>
                     <p className={styles.AddAnotherEmpName}>employee Name</p>
                     <select defaultValue={"Please select..."} className={styles.AddAnotherEmpInput}>
                         <option disabled value="Please select..." >Please select...</option>

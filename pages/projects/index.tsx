@@ -8,43 +8,19 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React from "react"
 import ProjectDetailsModal from "../../components/Project/ProjectDetailsModal";
 import ProjectUpdateUtilization from "../../components/Project/ProjectUpdateUtilization";
+import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+import axios from "axios";
+import { getCookie } from "cookies-next";
 
-const Projects = () => {
-    const Data: Array<any> = [];
-    for (let i = 0; i < 5; i++) {
-        Data.push([
-            "123",
-            "vivek",
-            "kumar",
-            "web tech",
-            "Admin",
-            "01 Aug 2022",
-            "24 Sep 2022",
-            "Closed",
-            "Behind schedule"
-        ]);
-    }
-    for (let i = 0; i < 5; i++) {
-        Data.push([
-            "12321323",
-            "vivek kasdfk",
-            "kumar",
-            "web tech",
-            "Admin",
-            "01 Aug 2022",
-            "24 Sep 2022",
-            "Running",
-            "Ahead schedule"
-        ]);
-    }
+const Projects = (props) => {
 
-
+    const [list, setList] = React.useState(props.Data);
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
     const [detailsModalOpen, setDetailsModalOpen] = React.useState(false);
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
-    const [page, setPage] = React.useState({ startno: 0, endno: 15 });
-    const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
+    const [page, setPage] = React.useState({ startno: 0, endno: list.length > 14 ? 15 : list.length });
+    const [currentData, setCurrentData] = React.useState(list.slice(page["startno"], page["endno"]));
     const [viewOptionsLocation, setViewOptionsLocation] = React.useState<Number>()
     const [viewUpdateUtilization, setViewUpdateUtilization] = React.useState(false);
 
@@ -63,7 +39,7 @@ const Projects = () => {
     }
 
     function handleright() {
-        if (page["endno"] === Data.length) {
+        if (page["endno"] === list.length) {
             return;
         }
         setPage(prev => ({ startno: prev.startno + 15, endno: prev.endno + 15 }))
@@ -78,14 +54,14 @@ const Projects = () => {
     }
 
     React.useEffect(() => {
-        setCurrentData(Data.slice(page["startno"], page["endno"]))
+        setCurrentData(list.slice(page["startno"], page["endno"]))
     }, [page])
 
-    return <div className={styles.container} style={{ opacity: modalOpen || detailsModalOpen ? "0.5" : "1" }}>
+    return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen || detailsModalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Project" modal={modalOpen} modalOpen={setModalOpen} button_title="Add Project"
             controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
-        <ProjectModal modal={modalOpen} modalClose={setModalOpen} />
-        <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
+        <ProjectModal Dropdown={props.Dropdown} modal={modalOpen} modalClose={setModalOpen} />
+        <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={list.length} />
         <ProjectDetailsModal data={viewModalDetails} isOpen={detailsModalOpen} setClose={setDetailsModalOpen} />
         <ProjectUpdateUtilization isOpen={viewUpdateUtilization} setClose={setViewUpdateUtilization} />
 
@@ -107,21 +83,21 @@ const Projects = () => {
                     </tr>
                 </thead>
                 <tbody className={styles.tablebody}>
-                    {currentData.map((item, index) => {
+                    {currentData.map((item, index): any => {
                         return (
                             <tr className={styles.rowItemContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectid}>{item[0]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item[1]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemclient}>{item[2]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemprojecttype}>{item[3]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectresponsible}>{item[4]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemstartdate}>{item[5]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemenddate}>{item[6]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectid}>{item["id"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item["name"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemclient}>{item["client_id"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojecttype}>{item["project_type"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemprojectresponsible}>{item["project_manager_id"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemstartdate}>{item["start_date"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemenddate}>{item["end_date"]}</td>
                                 <td onClick={() => handleViewModal(item)} style={{ color: item[7] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>
-                                    {item[7]}
+                                    {item["project_closure_status"]}
                                 </td>
-                                <td onClick={() => handleViewModal(item)} style={{ color: item[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{item[8]}</td>
+                                <td onClick={() => handleViewModal(item)} style={{ color: item[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{item["project_closure_status"]}</td>
                                 <td onClick={() => handleOptions(index)} className={styles.itemoptions}><MoreVertIcon />
                                     {
                                         viewOptionsLocation === index && <div className={styles.optionsContainer}>
@@ -141,7 +117,30 @@ const Projects = () => {
 
         </div>
     </div>
-
+    </PrivateRouteHoc>
 }
 export default Projects;
 
+export async function getServerSideProps(context: any) {
+    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/projects/all", {
+        headers: ({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `${getCookie("token", context)}`
+        })
+    })
+
+    const Dropdown = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/clients/dropdown", {
+        headers: ({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `${getCookie("token", context)}`
+        })
+    })
+    return {
+        props: {
+            Data: Data.data,
+            Dropdown: Dropdown.data
+        },
+    };
+}

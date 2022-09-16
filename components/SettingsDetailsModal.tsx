@@ -8,6 +8,8 @@ const EmployeeDetailsModal = ({ data, isOpen, setClose }: any) => {
         setClose(false)
     }
 
+    const datatransformed: any = Object.values(data);
+
     return <div>
         <Modal
             ariaHideApp={false}
@@ -18,12 +20,12 @@ const EmployeeDetailsModal = ({ data, isOpen, setClose }: any) => {
             <p className={styles.title}>View Details</p>
             <span className={styles.line}></span>
             <p className={styles.skillname}>Skill name</p>
-            <p className={styles.skilldata}>{data[0]}</p>
+            <p className={styles.skilldata}>{datatransformed[1]}</p>
             <span className={styles.verticalline}></span>
             <p className={styles.status}>Status</p>
-            <p className={styles.statusdata}>{data[2]}</p>
+            <p className={styles.statusdata}>{datatransformed[4]}</p>
             <p className={styles.description}>description</p>
-            <p className={styles.descriptiondata}>{data[1]}</p>
+            <p className={styles.descriptiondata}>{datatransformed[2]}</p>
         </Modal>
     </div>
 }

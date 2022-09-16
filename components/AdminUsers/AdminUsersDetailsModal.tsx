@@ -19,26 +19,26 @@ const AdminUsersDetailsModal = ({ data, isOpen, setClose }: any) => {
             <span className={styles.line}></span>
 
             <p className={styles.userid}>user ID</p>
-            <p className={styles.itemuserid}>{data[0]}</p>
+            <p className={styles.itemuserid}>{data["id"]}</p>
             <span className={styles.line1}></span>
 
             <p className={styles.name}>Name</p>
-            <p className={styles.itemname}>{data[1]}</p>
+            <p className={styles.itemname}>{data["first_name"]}</p>
             <span className={styles.line2}></span>
 
             <p className={styles.email}>email</p>
-            <p className={styles.itememail}>{data[2]}</p>
+            <p className={styles.itememail}>{data["email"]}</p>
 
             <p className={styles.phone}>phone</p>
-            <p className={styles.itemphone}>{data[3]}</p>
+            <p className={styles.itemphone}>{data["phone"]}</p>
             <span className={styles.line3}></span>
 
             <p className={styles.roles}>roles</p>
-            <p className={styles.itemroles}>{data[4]}</p>
+            <p className={styles.itemroles}>{data["utilization"]}</p>
             <span className={styles.line4}></span>
 
             <p className={styles.status}>status</p>
-            <p className={styles.itemstatus}>{data[5]}</p>
+            <p className={styles.itemstatus}>{data["status"]}</p>
         </Modal>
     </div>
 }

@@ -7,6 +7,8 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AddSkillsModal from '../../components/SettingSkills/AddSkillsModal'
 import SettingsDetailsModal from "../../components/SettingsDetailsModal";
+import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+
 
 const Skills = () => {
     const Data: Array<any> = [];
@@ -55,7 +57,7 @@ const Skills = () => {
     }, [page])
 
 
-    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
+    return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Skills" modal={modalOpen} modalOpen={setModalOpen}
             button_title="Add Skills" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
@@ -95,6 +97,7 @@ const Skills = () => {
         </div>
 
     </div>
+    </PrivateRouteHoc>
 }
 
 export default Skills;

@@ -7,25 +7,16 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProjectTypeModal from '../../components/SettingsProjectType/ProjectTypeModal';
 import SettingsDetailsModal from "../../components/SettingsDetailsModal";
+import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+import axios from "axios";
+import { getCookie } from "cookies-next";
 
-const ProjectType = () => {
-    const Data: Array<any> = [];
-    for (let i = 0; i < 10; i++) {
-        Data.push([
-            "vivek",
-            "Lorem Ipsum is simply dummy text of printing and some text",
-            "Active"]);
-    }
-    for (let i = 0; i < 10; i++) {
-        Data.push([
-            "kumar",
-            " printing",
-            "IN-Active"]);
-    }
+const ProjectType = ({ Data }): any => {
+
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
     const [detailsModalOpen, setDetailsModalOpen] = React.useState(false);
-    const [page, setPage] = React.useState({ startno: 0, endno: 15 });
+    const [page, setPage] = React.useState({ startno: 0, endno: Data.length > 14 ? 15 : Data.length });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
 
@@ -55,7 +46,7 @@ const ProjectType = () => {
     }, [page])
 
 
-    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }} >
+    return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }} >
         <DashboardSidebar title="Project Type" modal={modalOpen} modalOpen={setModalOpen}
             button_title="Add Project Type" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <Pagination controlDashboard={controlDashboard} rightButton={handleright} leftButton={handleleft} startpage={page["startno"] + 1} endpage={page["endno"]} totalpage={Data.length} />
@@ -75,14 +66,14 @@ const ProjectType = () => {
                 </thead>
                 <tbody className={styles.tablebody}>
 
-                    {currentData.map((item, index) => {
+                    {currentData.map((item: any, index: number) => {
                         return (
                             <tr onClick={() => handleViewModal(item)}
                                 className={styles.rowContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
-                                <td className={styles.itemname}>{item[0]}</td>
-                                <td className={styles.itemdescription}>{item[1]}</td>
-                                <td className={styles.itemstatus}>{item[2]}</td>
+                                <td className={styles.itemname}>{item["name"]}</td>
+                                <td className={styles.itemdescription}>{item.description}</td>
+                                <td className={styles.itemstatus}>{item.status}</td>
                                 <td className={styles.itemoptions}><MoreVertIcon /></td>
 
                             </tr>
@@ -95,6 +86,22 @@ const ProjectType = () => {
         </div>
 
     </div>
+    </PrivateRouteHoc>
 }
 
 export default ProjectType;
+
+
+export async function getServerSideProps(context: any) {
+    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/master_types", {
+        headers: ({
+            Authorization: `${getCookie("token", context)}`
+        })
+    })
+
+    return {
+        props: {
+            Data: Data.data
+        },
+    };
+}

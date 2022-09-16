@@ -2,9 +2,11 @@ import Modal from 'react-modal';
 import styles from "../../styles/components/Project/projectModal.module.css"
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
+import axios from "axios";
+import { getCookie } from 'cookies-next';
 
-const ProjectModal = ({ modal, modalClose }: any) => {
 
+const ProjectModal = ({ modal, modalClose, Dropdown }: any) => {
     const handleClose = () => {
         modalClose(false)
     }
@@ -20,8 +22,8 @@ const ProjectModal = ({ modal, modalClose }: any) => {
             <input className={styles.nameinput} placeholder="Enter" type="text" />
             <p className={styles.client}>Client</p>
             <select className={styles.clientinput}>
-                <option>client1</option>
-                <option>client2</option>
+                {Dropdown.map((item) => <option value={item}>{item}</option>
+                )}
             </select>
             <p className={styles.projecttype}>project type</p>
             <select className={styles.projecttypeinput}>
@@ -39,13 +41,14 @@ const ProjectModal = ({ modal, modalClose }: any) => {
             <input className={styles.enddateinput} type="date" />
             <p className={styles.projectstatus}>project status</p>
             <select className={styles.projectstatusinput}>
-                <option>stats1</option>
-                <option>stats2</option>
+                <option>Running</option>
+                <option>Closed</option>
             </select>
             <p className={styles.monthlystatus}>monthly status</p>
             <select className={styles.monthlystatusinput}>
-                <option>month1</option>
-                <option>month2</option>
+                <option>Behind schedule</option>
+                <option>Ahead schedule</option>
+                <option>On-Track</option>
             </select>
             <button className={styles.buttoncancel} type="button">Cancel</button>
             <button className={styles.buttonadd} type="button">Add Project</button>
@@ -54,3 +57,11 @@ const ProjectModal = ({ modal, modalClose }: any) => {
 }
 
 export default ProjectModal;
+
+export async function getServerSideProps(context: any) {
+
+
+
+    return {
+    }
+}

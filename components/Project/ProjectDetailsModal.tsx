@@ -20,38 +20,38 @@ const ProjectDetailsModal = ({ data, isOpen, setClose }: any) => {
             <span className={styles.line}></span>
 
             <p className={styles.projectid}>project ID</p>
-            <p className={styles.itemprojectid}>{data[0]}</p>
+            <p className={styles.itemprojectid}>{data["id"]}</p>
             <span className={styles.line1}></span>
 
             <p className={styles.name}>Name</p>
-            <p className={styles.itemname}>{data[1]}</p>
+            <p className={styles.itemname}>{data["name"]}</p>
             <span className={styles.line2}></span>
 
             <p className={styles.client}>client</p>
-            <p className={styles.itemclient}>{data[2]}</p>
+            <p className={styles.itemclient}>{data["client_id"]}</p>
 
             <p className={styles.projecttype}>project type</p>
-            <p className={styles.itemprojecttype}>{data[3]}</p>
+            <p className={styles.itemprojecttype}>{data["project_type"]}</p>
             <span className={styles.line3}></span>
 
             <p className={styles.projectresponsible}>Project Responsible</p>
-            <p className={styles.itemprojectresponsible}>{data[4]}</p>
+            <p className={styles.itemprojectresponsible}>{data["project_manager_id"]}</p>
             <span className={styles.line4}></span>
 
             <p className={styles.startdate}>Start Date</p>
-            <p className={styles.itemstartdate}>{data[5]}</p>
+            <p className={styles.itemstartdate}>{data["start_date"]}</p>
 
 
             <p className={styles.enddate}>End Date</p>
-            <p className={styles.itemenddate}>{data[6]}</p>
+            <p className={styles.itemenddate}>{data["end_date"]}</p>
             <span className={styles.line5}></span>
 
             <p className={styles.projectstatus}>Project Status</p>
-            <p style={{ color: data[7] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>{data[7]}</p>
+            <p style={{ color: data["project_closure_status"] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>{data["project_closure_status"]}</p>
             <span className={styles.line6}></span>
 
             <p className={styles.monthlystatus}>Monthly Status</p>
-            <p style={{ color: data[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{data[8]}</p>
+            <p style={{ color: data["project_closure_status"] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{data["project_closure_status"]}</p>
         </Modal>
     </div>
 }

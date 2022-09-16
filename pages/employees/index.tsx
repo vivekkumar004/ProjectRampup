@@ -8,6 +8,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmployeeAddModal from "../../components/Employee/EmployeeAddModal"
 import EmployeeDetailsModal from "../../components/Employee/EmployeeDetailsModal";
 import EmployeeUpdateUtilization from "../../components/Employee/EmployeeUpdateUtilization";
+import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+import { getCookie } from "cookies-next";
+
 
 const Employees = () => {
     const Data: Array<any> = [];
@@ -71,7 +74,7 @@ const Employees = () => {
     }, [page])
 
 
-    return <div className={styles.container} style={{ opacity: modalOpen ? "0.6" : "1" }}>
+    return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen ? "0.6" : "1" }}>
         <DashboardSidebar title="Employees" modal={modalOpen} modalOpen={setModalOpen}
             button_title="Add Employees" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <EmployeeAddModal isOpen={modalOpen} setClose={setModalOpen} />
@@ -127,6 +130,14 @@ const Employees = () => {
             </table>
         </div>
     </div >
+    </PrivateRouteHoc>
 }
 
 export default Employees;
+
+export async function getServerSideProps(context: any) {
+
+    return {
+        props: {},
+    }
+}

@@ -13,10 +13,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useRouter } from 'next/router'
 import axios from "axios";
-import { setCookie } from 'cookies-next';
+import { deleteCookie, getCookie, setCookie } from 'cookies-next';
 
 
 const Home: NextPage = () => {
+  deleteCookie("token");
   const router = useRouter()
 
   const [btnDisable, setBtnDisable] = React.useState(true);
@@ -38,12 +39,18 @@ const Home: NextPage = () => {
   React.useEffect(() => {
     setWrongPassword(false);
     if (email.length > 1) {
-      if (mailFormat.test(email) && password.length > 1) {
+      if (!mailFormat.test(email)) {
+        setemalValid(true)
+      }
+      else {
+        setemalValid(false)
+      }
+      if (mailFormat.test(email) && password.length > 4) {
         setBtnDisable(false)
         setemalValid(false)
       }
+
       else {
-        setemalValid(true)
         setBtnDisable(true)
       }
     }
@@ -59,12 +66,10 @@ const Home: NextPage = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    axios.post("https://obscure-springs-16848.herokuapp.com/users/sign_in", loginCredentials)
+    axios.post("https://tranquil-hamlet-54124.herokuapp.com/users/sign_in", loginCredentials)
       .then(res => {
-        console.log(res);
-        if (res.data.user.email === email) {
-          setCookie("new", res.headers.authorization);
-
+        if (res.status === 200) {
+          setCookie("token", res.headers.authorization);
           router.push('/adminUsers')
         }
         else {
@@ -72,7 +77,6 @@ const Home: NextPage = () => {
         }
       })
       .catch(() => setWrongPassword(true))
-
   }
 
   return (

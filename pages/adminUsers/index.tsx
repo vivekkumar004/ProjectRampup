@@ -9,17 +9,12 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { NumberFormat } from "libphonenumber-js/types";
-import { getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
+import { deleteCookie, getCookies, getCookie, setCookies, removeCookies } from 'cookies-next';
+import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+import axios from "axios"
 
 
-const AdminUsers = () => {
-    const Data: Array<any> = [];
-
-    for (let i = 0; i < 20; i++) {
-        Data.push(["123", "vivek", "vivek@email.com", "+1 (415)425-5588", "Admin", "Inactive"
-        ]);
-    }
+const AdminUsers = ({ Data }) => {
 
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
@@ -58,6 +53,21 @@ const AdminUsers = () => {
             setViewOptionsLocation(index)
     }
 
+
+    const handleDelete = (id) => {
+        axios.delete(`https://tranquil-hamlet-54124.herokuapp.com/user_profile/${id}`,
+            {
+                headers: {
+                    Authorization: `${getCookie('token')}`
+                }
+            }
+        )
+            .then(() => console.log("deleted"))
+            .catch(err => console.log(err))
+
+    }
+
+
     const statusLogo = (type: string) => {
         switch (type) {
             case "Inactive":
@@ -65,6 +75,7 @@ const AdminUsers = () => {
                 break;
             case "Invite sent": return <CheckCircleIcon style={{ marginRight: "5px", height: "20px", width: "20px", color: "#FF5A1F" }} />
                 break;
+            case "active":
             case "Active": return <CheckCircleIcon style={{ marginRight: "5px", height: "20px", width: "20px", color: "#33BC28" }} />
                 break;
             default: return "-"
@@ -75,7 +86,7 @@ const AdminUsers = () => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
     }, [page])
 
-    return <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
+    return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen}
             button_title="  Add User" controlDashboard={controlDashboard} setControlDashboard={setControlDashboard} />
         <AdminUsersModal isOpen={modalOpen} setClose={setModalOpen} />
@@ -102,18 +113,18 @@ const AdminUsers = () => {
                         return (
                             <tr className={styles.rowContainer} key={index}>
                                 <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemuserid}>{item[0]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item[1]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itememail}>{item[2]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemphone}>{item[3]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemrole}>{item[4]}</td>
-                                <td onClick={() => handleViewModal(item)} className={styles.itemstatus}>{statusLogo(item[5])}{item[5]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemuserid}>{item["id"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item["first_name"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itememail}>{item["email"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemphone}>{item.phone}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemrole}>{item["utilization"]}</td>
+                                <td onClick={() => handleViewModal(item)} className={styles.itemstatus}>{statusLogo(item.status)}{item["status"]}</td>
                                 <td onClick={() => handleOptions(index)} className={styles.itemoptions}><MoreVertIcon />
                                     {
                                         viewOptionsLocation === index && <div className={styles.optionsContainer}>
                                             <button className={styles.optionButtons}>Edit</button>
                                             <button className={styles.optionButtons}>Archive</button>
-                                            <button className={styles.optionButtons}>Delete</button>
+                                            <button onClick={() => handleDelete(item["id"])} className={styles.optionButtons}>Delete</button>
                                         </div>
                                     }</td>
                             </tr>
@@ -125,13 +136,23 @@ const AdminUsers = () => {
             </table>
         </div>
     </div>
+    </PrivateRouteHoc>
 
 }
 export default AdminUsers;
 
 export async function getServerSideProps(context: any) {
-    console.log(getCookie("new", context))
+
+    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/user_profiles", {
+        headers: ({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `${getCookie("token", context)}`
+        })
+    })
     return {
-        props: {},
+        props: {
+            Data: Data.data
+        },
     }
 }

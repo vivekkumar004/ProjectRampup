@@ -4,13 +4,37 @@ import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import axios from 'axios';
 
 const AdminUsersModal = ({ isOpen, setClose }: any) => {
     const [numberValue, setNumberValue] = React.useState("");
-
+    const [values, setValues] = React.useState({ name: "", email: "", phone: "", role: "" })
     const handleClose = () => {
         setClose(false)
     }
+
+
+    const handleradd = () => {
+        // axios.post('https://tranquil-hamlet-54124.herokuapp.com/user_profile', {
+        //     "user_profile": {
+        //         "first_name": adminvalue.name,
+        //         "last_name": adminvalue.name,
+        //         "user_id": random.int((1), (25)),
+        //         "status": "active",
+        //         "master_type_id": 1
+        //     }
+        // }, {
+        //     headers: { Authorization: localStorage.getItem("token")! }
+        // })
+        //     .then((response: any) => {
+        //         console.log("User added successfully");
+        //     })
+        //     .catch(() => {
+        //         console.log("User not added");
+        //     });
+
+    }
+
     return <div>
         <Modal
             ariaHideApp={false}
@@ -45,7 +69,7 @@ const AdminUsersModal = ({ isOpen, setClose }: any) => {
             </select>
             <button type="button" className={styles.button_add}>+ Add another</button>
             <button type="button" onClick={handleClose} className={styles.button_cancel}>Cancel</button>
-            <button type="button" className={styles.button_invite}>Invite user</button>
+            <button onClick={handleradd} type="button" className={styles.button_invite}>Invite user</button>
         </Modal>
     </div>
 }
