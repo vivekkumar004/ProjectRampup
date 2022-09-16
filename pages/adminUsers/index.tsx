@@ -53,7 +53,6 @@ const AdminUsers = ({ Data }: any) => {
             setViewOptionsLocation(index)
     }
 
-
     const handleDelete = (id: any) => {
         axios.delete(`https://tranquil-hamlet-54124.herokuapp.com/user_profile/${id}`,
             {
@@ -142,14 +141,25 @@ const AdminUsers = ({ Data }: any) => {
 export default AdminUsers;
 
 export async function getServerSideProps(context: any) {
-
-    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/user_profiles", {
-        headers: ({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `${getCookie("token", context)}`
+    let Data: any
+    try {
+        Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/user_profiles", {
+            headers: ({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `${getCookie("token", context)}`
+            })
         })
-    })
+    }
+    catch {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
+
+    }
     return {
         props: {
             Data: Data.data

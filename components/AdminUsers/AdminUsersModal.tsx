@@ -7,13 +7,10 @@ import "react-phone-input-2/lib/style.css";
 import axios from 'axios';
 
 const AdminUsersModal = ({ isOpen, setClose }: any) => {
-    const [numberValue, setNumberValue] = React.useState("");
     const [values, setValues] = React.useState({ name: "", email: "", phone: "", role: "" })
     const handleClose = () => {
         setClose(false)
     }
-
-
     const handleradd = () => {
         // axios.post('https://tranquil-hamlet-54124.herokuapp.com/user_profile', {
         //     "user_profile": {
@@ -45,9 +42,9 @@ const AdminUsersModal = ({ isOpen, setClose }: any) => {
             <p className={styles.inviteText}>Invite user</p>
             <span className={styles.line} ></span>
             <p className={styles.name}>NAME</p>
-            <input placeholder="harvard" type="text" className={styles.inputName} />
+            <input onChange={(e) => setValues({ ...values, name: e.target.value })} placeholder="harvard" type="text" className={styles.inputName} />
             <p className={styles.email}>EMAIL</p>
-            <input placeholder="harvard" type="email" className={styles.inputEmail} />
+            <input onChange={(e) => setValues({ ...values, email: e.target.value })} placeholder="harvard" type="email" className={styles.inputEmail} />
             <p className={styles.phone}>PHONE NUMBER</p>
 
             <PhoneInput
@@ -58,14 +55,14 @@ const AdminUsersModal = ({ isOpen, setClose }: any) => {
                 }}
                 containerStyle={{ position: "absolute", marginLeft: "40px", marginTop: "330px", width: "360px", height: "48px" }}
                 buttonStyle={{ background: "#EBF5FF", width: "68px", height: "48px" }}
-                value={numberValue}
-                onChange={() => setNumberValue(numberValue)}
+                value={values.phone}
+                onChange={(e) => setValues({ ...values, phone: e })}
                 country={"us"}
             />
             <label className={styles.label_role} htmlFor="role">ROLE</label>
-            <select className={styles.select_role} name="role" >
-                <option value="abc">abc</option>
-                <option value="def">def</option>
+            <select onChange={(e) => setValues({ ...values, role: e.target.value })} className={styles.select_role} name="role" >
+                <option value="dev">dev</option>
+                <option value="eng">eng</option>
             </select>
             <button type="button" className={styles.button_add}>+ Add another</button>
             <button type="button" onClick={handleClose} className={styles.button_cancel}>Cancel</button>
