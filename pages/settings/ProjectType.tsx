@@ -11,7 +11,7 @@ import PrivateRouteHoc from "../../components/PrivateRouteHoc";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 
-const ProjectType = ({ Data }): any => {
+const ProjectType = ({ Data }: any) => {
 
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
