@@ -59,7 +59,7 @@ const EmployeeAddModal = ({ isOpen, setClose }: any) => {
                 <option>revenue1</option>
                 <option>revenue2</option>
             </select>
-            <button className={styles.buttoncancel} type="button">Cancel</button>
+            <button onClick={handleClose} className={styles.buttoncancel} type="button">Cancel</button>
             <button className={styles.buttonadd} type="button">Add Employee</button>
 
 

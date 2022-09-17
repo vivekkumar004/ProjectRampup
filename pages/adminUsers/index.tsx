@@ -19,10 +19,11 @@ const AdminUsers = ({ Data }: any) => {
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
     const [detailsModalOpen, setDetailsModalOpen] = React.useState(false);
-    const [page, setPage] = React.useState({ startno: 0, endno: 15 });
+    const [page, setPage] = React.useState({ startno: 0, endno: Data.length > 14 ? 15 : Data.length });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
     const [viewOptionsLocation, setViewOptionsLocation] = React.useState<Number>()
+    const [selectAllCheckbox, setSelectAllCheckbox] = React.useState(false)
 
     const handleViewModal = (item: any) => {
         setDetailsModalOpen(true)
@@ -96,7 +97,7 @@ const AdminUsers = ({ Data }: any) => {
             <table>
                 <thead className={styles.table_head}>
                     <tr>
-                        <td><input className={styles.checkbox_top} type="checkbox" /></td>
+                        <td><input checked={selectAllCheckbox} onChange={() => setSelectAllCheckbox(!selectAllCheckbox)} className={styles.checkbox_top} type="checkbox" /></td>
                         <td className={styles.user_id}>User ID <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.name}>Name <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.email}>Email <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
@@ -111,7 +112,7 @@ const AdminUsers = ({ Data }: any) => {
                     {currentData.map((item: any, index: any) => {
                         return (
                             <tr className={styles.rowContainer} key={index}>
-                                <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
+                                <td> <input onChange={e => { }} checked={selectAllCheckbox} className={styles.itemcheckbox} type="checkbox" /></td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemuserid}>{item["id"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item["first_name"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itememail}>{item["email"]}</td>

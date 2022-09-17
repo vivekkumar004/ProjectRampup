@@ -5,6 +5,7 @@ import React from 'react';
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import axios from 'axios';
+import { getCookie } from 'cookies-next';
 
 const AdminUsersModal = ({ isOpen, setClose }: any) => {
     const [values, setValues] = React.useState({ name: "", email: "", phone: "", role: "" })
@@ -12,23 +13,22 @@ const AdminUsersModal = ({ isOpen, setClose }: any) => {
         setClose(false)
     }
     const handleradd = () => {
-        // axios.post('https://tranquil-hamlet-54124.herokuapp.com/user_profile', {
-        //     "user_profile": {
-        //         "first_name": adminvalue.name,
-        //         "last_name": adminvalue.name,
-        //         "user_id": random.int((1), (25)),
-        //         "status": "active",
-        //         "master_type_id": 1
-        //     }
-        // }, {
-        //     headers: { Authorization: localStorage.getItem("token")! }
-        // })
-        //     .then((response: any) => {
-        //         console.log("User added successfully");
-        //     })
-        //     .catch(() => {
-        //         console.log("User not added");
-        //     });
+        axios.post('https://tranquil-hamlet-54124.herokuapp.com/user_profile', {
+            "user_profile": {
+                "first_name": values.name,
+                "user_id": Math.floor(Math.random() * 100),
+                "master_type_id": 1,
+                "join_date": "2002-04-08"
+            }
+        }, {
+            headers: { Authorization: `$(getCookie("token")` }
+        })
+            .then((response: any) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
     }
 

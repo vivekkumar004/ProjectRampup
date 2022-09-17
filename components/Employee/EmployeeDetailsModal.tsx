@@ -20,37 +20,37 @@ const EmployeeDetailsModal = ({ data, isOpen, setClose }: any) => {
             <span className={styles.line}></span>
 
             <p className={styles.employeeid}>employee ID</p>
-            <p className={styles.itememployeeid}>{data[0]}</p>
+            <p className={styles.itememployeeid}>{data.id}</p>
             <span className={styles.line1}></span>
 
             <p className={styles.name}>Name</p>
-            <p className={styles.itemname}>{data[1]}</p>
+            <p className={styles.itemname}>{data.first_name}</p>
             <span className={styles.line2}></span>
 
             <p className={styles.email}>email</p>
-            <p className={styles.itememail}>{data[2]}</p>
+            <p className={styles.itememail}>{data.email}</p>
 
             <p className={styles.Contactnumber}>Contact Number</p>
             <p className={styles.itemContactnumber}>{data[3]}</p>
             <span className={styles.line3}></span>
 
             <p className={styles.EmployeeType}>Employee Type</p>
-            <p className={styles.itemEmployeeType}>{data[7]}</p>
+            <p className={styles.itemEmployeeType}>{data["employee_type"]}</p>
             <span className={styles.line4}></span>
 
             <p className={styles.joiningdate}>Joining Date</p>
-            <p className={styles.itemjoiningdate}>{data[8]}</p>
+            <p className={styles.itemjoiningdate}>{data["join_date"]}</p>
 
             <p className={styles.Salary}>Salary</p>
-            <p className={styles.itemSalary}>{data[9]}</p>
+            <p className={styles.itemSalary}>{data["salary"]}</p>
             <span className={styles.line5}></span>
 
             <p className={styles.Utilization}>Utilization</p>
-            <p className={styles.itemUtilization}>{data[10]}</p>
+            <p className={styles.itemUtilization}>{data["utilization"]}</p>
             <span className={styles.line6}></span>
 
             <p className={styles.RevenueOpportunity}>Revenue Opportunity</p>
-            <p className={styles.itemRevenueOpportunity}>{data[11]}</p>
+            <p className={styles.itemRevenueOpportunity}>{data[status]}</p>
 
             <p className={styles.skills}>skills</p>
             <p className={styles.itemskills}><span className={styles.borders}>{data[6]}</span><span className={styles.borders}>{data[5]}</span></p>

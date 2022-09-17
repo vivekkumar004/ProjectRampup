@@ -23,6 +23,7 @@ const Projects = (props: any) => {
     const [currentData, setCurrentData] = React.useState(list.slice(page["startno"], page["endno"]));
     const [viewOptionsLocation, setViewOptionsLocation] = React.useState<Number>()
     const [viewUpdateUtilization, setViewUpdateUtilization] = React.useState(false);
+    const [selectAllCheckbox, setSelectAllCheckbox] = React.useState(false);
 
     const handleViewModal = (item: any) => {
         setDetailsModalOpen(true)
@@ -69,7 +70,7 @@ const Projects = (props: any) => {
             <table>
                 <thead className={styles.table_head}>
                     <tr>
-                        <td><input className={styles.checkbox_top} type="checkbox" /></td>
+                        <td><input checked={selectAllCheckbox} onChange={() => setSelectAllCheckbox(!selectAllCheckbox)} className={styles.checkbox_top} type="checkbox" /></td>
                         <td className={styles.project_id}>Project ID <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.name}>Name <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.client}>Client <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
@@ -86,7 +87,7 @@ const Projects = (props: any) => {
                     {currentData.map((item: any, index: any) => {
                         return (
                             <tr className={styles.rowItemContainer} key={index}>
-                                <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
+                                <td> <input checked={selectAllCheckbox} onChange={() => { }} className={styles.itemcheckbox} type="checkbox" /></td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemprojectid}>{item["id"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemname}>{item["name"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemclient}>{item["client_id"]}</td>
@@ -94,10 +95,10 @@ const Projects = (props: any) => {
                                 <td onClick={() => handleViewModal(item)} className={styles.itemprojectresponsible}>{item["project_manager_id"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemstartdate}>{item["start_date"]}</td>
                                 <td onClick={() => handleViewModal(item)} className={styles.itemenddate}>{item["end_date"]}</td>
-                                <td onClick={() => handleViewModal(item)} style={{ color: item[7] === "Running" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>
+                                <td onClick={() => handleViewModal(item)} style={{ color: item["project_closure_status"] === "open" ? "#33BC28" : "#E02424" }} className={styles.itemprojectstatus}>
                                     {item["project_closure_status"]}
                                 </td>
-                                <td onClick={() => handleViewModal(item)} style={{ color: item[8] === "Behind schedule" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{item["project_closure_status"]}</td>
+                                <td onClick={() => handleViewModal(item)} style={{ color: item["project_closure_status"] === "closed" ? "#E02424" : "#33BC28" }} className={styles.itemmonthlystatus}>{item["project_closure_status"]}</td>
                                 <td onClick={() => handleOptions(index)} className={styles.itemoptions}><MoreVertIcon />
                                     {
                                         viewOptionsLocation === index && <div className={styles.optionsContainer}>
@@ -122,21 +123,44 @@ const Projects = (props: any) => {
 export default Projects;
 
 export async function getServerSideProps(context: any) {
-    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/projects/all", {
-        headers: ({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `${getCookie("token", context)}`
+    let Data
+    let Dropdown
+    try {
+        Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/projects/all", {
+            headers: ({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `${getCookie("token", context)}`
+            })
         })
-    })
+    } catch {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
 
-    const Dropdown = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/clients/dropdown", {
-        headers: ({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `${getCookie("token", context)}`
+    }
+
+    try {
+        Dropdown = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/clients/dropdown", {
+            headers: ({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `${getCookie("token", context)}`
+            })
         })
-    })
+    }
+    catch {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
+
+    }
     return {
         props: {
             Data: Data.data,

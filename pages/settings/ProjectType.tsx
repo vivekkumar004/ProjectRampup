@@ -19,6 +19,8 @@ const ProjectType = ({ Data }: any) => {
     const [page, setPage] = React.useState({ startno: 0, endno: Data.length > 14 ? 15 : Data.length });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
+    const [selectAllCheckbox, setSelectAllCheckbox] = React.useState(false)
+
 
     function handleleft() {
         if (page.startno === 1) {
@@ -56,7 +58,7 @@ const ProjectType = ({ Data }: any) => {
             <table>
                 <thead className={styles.table_head}>
                     <tr>
-                        <td><input className={styles.checkbox_top} type="checkbox" /></td>
+                        <td><input checked={selectAllCheckbox} onChange={() => setSelectAllCheckbox(!selectAllCheckbox)} className={styles.checkbox_top} type="checkbox" /></td>
                         <td className={styles.name}>Name <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.description}>Description <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.status}>Status <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
@@ -70,7 +72,7 @@ const ProjectType = ({ Data }: any) => {
                         return (
                             <tr onClick={() => handleViewModal(item)}
                                 className={styles.rowContainer} key={index}>
-                                <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
+                                <td> <input onChange={e => { }} checked={selectAllCheckbox} className={styles.itemcheckbox} type="checkbox" /></td>
                                 <td className={styles.itemname}>{item["name"]}</td>
                                 <td className={styles.itemdescription}>{item.description}</td>
                                 <td className={styles.itemstatus}>{item.status}</td>
@@ -93,15 +95,28 @@ export default ProjectType;
 
 
 export async function getServerSideProps(context: any) {
-    const Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/master_types", {
-        headers: ({
-            Authorization: `${getCookie("token", context)}`
+    let Data: any
+    try {
+        Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/project_types/all", {
+            headers: ({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `${getCookie("token", context)}`
+            })
         })
-    })
+    }
+    catch {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
 
+    }
     return {
         props: {
             Data: Data.data
         },
-    };
+    }
 }

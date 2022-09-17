@@ -8,28 +8,20 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmployeeTypeModal from '../../components/SettingsEmployeeType/EmployeeTypeModal'
 import SettingsDetailsModal from "../../components/SettingsDetailsModal";
 import PrivateRouteHoc from "../../components/PrivateRouteHoc";
+import axios from "axios";
+import { getCookie } from "cookies-next";
 
 
-const EmployeeType = () => {
-    const Data: Array<any> = [];
-    for (let i = 0; i < 10; i++) {
-        Data.push([
-            "vivek",
-            "Lorem Ipsum is simply dummy text of printing and some reanadlkfj sadfj sadlfkj",
-            "Active"]);
-    }
-    for (let i = 0; i < 10; i++) {
-        Data.push([
-            "kumar",
-            " printing",
-            "IN-Active"]);
-    }
+const EmployeeType = ({ Data }: any) => {
+
     const [modalOpen, setModalOpen] = React.useState(false);
     const [viewModalDetails, setViewModalDetails] = React.useState("");
     const [detailsModalOpen, setDetailsModalOpen] = React.useState(false);
-    const [page, setPage] = React.useState({ startno: 0, endno: 15 });
+    const [page, setPage] = React.useState({ startno: 0, endno: Data.length > 14 ? 15 : Data.length });
     const [currentData, setCurrentData] = React.useState(Data.slice(page["startno"], page["endno"]));
     const [controlDashboard, setControlDashboard] = React.useState<Boolean>(false)
+    const [selectAllCheckbox, setSelectAllCheckbox] = React.useState(false)
+
 
     function handleleft() {
         if (page.startno === 1) {
@@ -67,7 +59,7 @@ const EmployeeType = () => {
             <table>
                 <thead className={styles.table_head}>
                     <tr>
-                        <td><input className={styles.checkbox_top} type="checkbox" /></td>
+                        <td><input checked={selectAllCheckbox} onChange={() => setSelectAllCheckbox(!selectAllCheckbox)} className={styles.checkbox_top} type="checkbox" /></td>
                         <td className={styles.name}>Name <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.description}>Description <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
                         <td className={styles.status}>Status <ArrowUpwardIcon className={styles.arrow} /><ArrowDownwardIcon className={styles.arrow} /></td>
@@ -77,14 +69,14 @@ const EmployeeType = () => {
                 </thead>
                 <tbody className={styles.tablebody}>
 
-                    {currentData.map((item, index) => {
+                    {currentData.map((item: any, index: number) => {
                         return (
                             <tr onClick={() => handleViewModal(item)}
                                 className={styles.rowContainer} key={index}>
-                                <td> <input className={styles.itemcheckbox} type="checkbox" /></td>
-                                <td className={styles.itemname}>{item[0]}</td>
-                                <td className={styles.itemdescription}>{item[1]}</td>
-                                <td className={styles.itemstatus}>{item[2]}</td>
+                                <td> <input onChange={e => { }} checked={selectAllCheckbox} className={styles.itemcheckbox} type="checkbox" /></td>
+                                <td className={styles.itemname}>{item["name"]}</td>
+                                <td className={styles.itemdescription}>{item.description}</td>
+                                <td className={styles.itemstatus}>{item["status"]}</td>
                                 <td className={styles.itemoptions}><MoreVertIcon /></td>
 
                             </tr>
@@ -101,3 +93,30 @@ const EmployeeType = () => {
 }
 
 export default EmployeeType;
+
+export async function getServerSideProps(context: any) {
+    let Data: any
+    try {
+        Data = await axios.get("https://tranquil-hamlet-54124.herokuapp.com/employee_types/all", {
+            headers: ({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `${getCookie("token", context)}`
+            })
+        })
+    }
+    catch {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
+
+    }
+    return {
+        props: {
+            Data: Data.data
+        },
+    }
+}
