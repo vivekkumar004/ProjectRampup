@@ -56,7 +56,7 @@ const Projects = (props: any) => {
 
     React.useEffect(() => {
         setCurrentData(list.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, list])
 
     return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen || detailsModalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Project" modal={modalOpen} modalOpen={setModalOpen} button_title="Add Project"

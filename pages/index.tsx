@@ -55,7 +55,7 @@ const Home: NextPage = () => {
       }
     }
 
-  }, [email, password])
+  }, [email, password, mailFormat])
 
   const loginCredentials = {
     "user": {

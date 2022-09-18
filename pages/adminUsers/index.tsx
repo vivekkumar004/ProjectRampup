@@ -84,7 +84,7 @@ const AdminUsers = ({ Data }: any) => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, Data])
 
     return <PrivateRouteHoc> <div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>
         <DashboardSidebar title="Admin Users" modal={modalOpen} modalOpen={setModalOpen}

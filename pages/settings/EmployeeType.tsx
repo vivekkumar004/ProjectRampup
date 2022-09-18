@@ -46,7 +46,7 @@ const EmployeeType = ({ Data }: any) => {
 
     React.useEffect(() => {
         setCurrentData(Data.slice(page["startno"], page["endno"]))
-    }, [page])
+    }, [page, Data])
 
 
     return <PrivateRouteHoc><div className={styles.container} style={{ opacity: modalOpen ? "0.5" : "1" }}>

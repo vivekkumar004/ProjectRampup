@@ -6,18 +6,18 @@ import { getCookie } from 'cookies-next';
 import axios from 'axios';
 
 const ProjectTypeModal = ({ isOpen, setClose }: any) => {
-    const [values, setValues] = React.useState({ "name": "", "description": "", "status": "" });
-
-
+    const [values, setValues] = React.useState({ name: "", description: "", status: "" });
+    console.log(values.name)
 
     const handleradd = () => {
         axios.post('https://tranquil-hamlet-54124.herokuapp.com/project_type', {
             "project_type": {
-                name: values.name,
-                description: values.description,
-                status: values.status
-            },
+                "name": values.name,
+                "description": values.description,
+                "status": values.status
+            }
         }, {
+
             headers: {
                 // Accept: "application/json",
                 // "Content-type": "application/json",
@@ -52,8 +52,8 @@ const ProjectTypeModal = ({ isOpen, setClose }: any) => {
             <p className={styles.labelstatus}>project type Status</p>
             <select onChange={(e) => setValues({ ...values, status: e.target.value })} defaultValue={"Please select..."} className={styles.statusinput}>
                 <option disabled value="Please select..." >Please select...</option>
-                <option value="Active">Active</option>
-                <option value="InActive">InActive</option>
+                <option value="active">active</option>
+                <option value="inActive">inActive</option>
             </select>
             <button className={styles.cancel_button} onClick={handleClose} type="button">Cancel</button>
             <button onClick={handleradd} className={styles.add_button} type="button">Add</button>
