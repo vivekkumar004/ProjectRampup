@@ -31,7 +31,7 @@ const Skills = ({ Data }: any) => {
         // else {
         //     setPage(prev => ({ startno: prev.startno - 15, endno: prev.endno - 15 }))
         // }
-        if (setPaginationCount === 1 || paginationCount < 1) {
+        if (paginationCount === 1 || paginationCount < 1) {
             return
         }
         setPaginationCount(prev => prev - 1)
