@@ -27,7 +27,7 @@ const AdminUsersModal = ({ isOpen, setClose }: any) => {
                 console.log(response);
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err.response.data.error);
             });
 
     }

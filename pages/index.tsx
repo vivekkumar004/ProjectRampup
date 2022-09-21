@@ -37,7 +37,6 @@ const Home: NextPage = () => {
   }, []);
 
   React.useEffect(() => {
-    setWrongPassword(false);
     if (email.length > 1) {
       if (!mailFormat.test(email)) {
         setemalValid(true)
@@ -48,6 +47,7 @@ const Home: NextPage = () => {
       if (mailFormat.test(email) && password.length > 4) {
         setBtnDisable(false)
         setemalValid(false)
+
       }
 
       else {

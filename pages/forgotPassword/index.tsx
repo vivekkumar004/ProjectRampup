@@ -4,13 +4,14 @@ import styles from "../../styles/forgotPassword.module.css"
 import { useRouter } from 'next/router'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useSelector, useDispatch } from 'react-redux'
-import { changeEmail } from "../../store/index";
-import type { RootState } from '../../store/index'
-
+import { changeEmail } from "../../store/EmailSlice";
+import type { RootState } from '../../store/store'
 
 const ForgotPassword: NextPage = () => {
-    // const dispatch = useDispatch()
-    // dispatch(changeEmail("adfadf"))
+    const count = useSelector((state: RootState) => state.email.value)
+    const dispatch = useDispatch()
+
+    console.log(count)
     const router = useRouter()
     return (
         <div className={styles.bodycontainer}>

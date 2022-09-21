@@ -34,8 +34,6 @@ const AddSkillsModal = ({ isOpen, setClose }: any) => {
 
     }
 
-
-
     return <div>
         <Modal
             ariaHideApp={false}
@@ -53,8 +51,8 @@ const AddSkillsModal = ({ isOpen, setClose }: any) => {
             <p className={styles.labelstatus}>skill Status</p>
             <select onChange={(e) => setValues({ ...values, status: e.target.value })} defaultValue={"Please select..."} className={styles.statusinput}>
                 <option disabled value="Please select..." >Please select...</option>
-                <option value="active">Active</option>
-                <option value="inActive">InActive</option>
+                <option value="active">active</option>
+                <option value="inActive">inActive</option>
             </select>
             <button className={styles.cancel_button} onClick={handleClose} type="button">Cancel</button>
             <button onClick={handleradd} className={styles.add_button} type="button">Add</button>
