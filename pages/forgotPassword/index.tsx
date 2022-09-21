@@ -8,10 +8,10 @@ import { changeEmail } from "../../store/EmailSlice";
 import type { RootState } from '../../store/store'
 
 const ForgotPassword: NextPage = () => {
-    const count = useSelector((state: RootState) => state.email.value)
-    const dispatch = useDispatch()
+    // const count = useSelector((state: RootState) => state.email.value)
+    // const dispatch = useDispatch()
 
-    console.log(count)
+    // console.log(count)
     const router = useRouter()
     return (
         <div className={styles.bodycontainer}>
